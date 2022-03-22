@@ -1,16 +1,45 @@
 import Button from './components/Button'
 import {useState} from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 function App() {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [usuarioNaoExiste, setUsuarioNaoExiste] = useState(true);
+
+  async function handleLogin(e) {
+    e.preventDefault();
+
+    if(usuarioNaoExiste) {
+      return toast.error('Usuário não existe!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    return toast.success('Login bem sucedido!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
 
   return (
     <main className="tela_login">
-      {/* <ToastContainer
+      <ToastContainer
         className="toast-error"
         position="top-right"
         autoClose={2000}
@@ -22,15 +51,12 @@ function App() {
         draggable
         pauseOnHover={false}
         theme="colored"
-      /> */}
-      <section className="tela_login_esquerda">
-        <h2 className="tela_login_esquerda_titulo">Gerencia todos os pagamentos da sua empresa em um só lugar.</h2>
-      </section>
+      />
 
       <section className="tela_login_direita">
         <h2 className="tela_login_direita_titulo">Faça seu login!</h2>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="form_input email_login">
             <label htmlFor="input-email" className="form_label_login">E-mail</label>
             <input
@@ -51,7 +77,7 @@ function App() {
               name="input-senha"
               placeholder="Digite sua senha"
               value={senha}
-              onChange={e => setEmail(senha.target.value)}
+              onChange={e => setSenha(e.target.value)}
               required
             />
           </div>

@@ -31,37 +31,10 @@ code {
   width: 100vw;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #F8F8F9;
 }
 
-.tela_login_esquerda {
-  background-image: url('../../assets/background-tela-login.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 30%;
-  height: 100%;
-  display: flex;
-}
-
-.tela_login_esquerda_titulo {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 2.4rem;
-  line-height: 130%;
-  color: var(--verde-forte);
-  margin: 16rem 4.7rem 0 4.7rem;
-  text-align: center;
-}
-
-
-.tela_login_direita {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .tela_login_direita_titulo {
   font-family: Montserrat;
@@ -109,67 +82,7 @@ input {
   margin-bottom: 0.6rem;
 }
 
-.form-error {
-  color: #E70000;
-  font-family: Inter;
-  font-size: 1.0rem;
-  line-height: 20px;
-  margin-top: 0.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.senha_login{
-  position: relative;
-}
-
-.tela_login_direita_esqueceu_senha {
-  font-family: Nunito;
-  font-weight: 600;
-  font-size: 1.4rem;
-  text-decoration-line: underline;
-  color: var(--rosa-forte);
-  position: absolute;
-  left: 60%;
-}
 
 .tela_login_direita_div_botao {
   margin-top: 4.6rem;
-}
-
-.tela_login_direita_botao_login {
-  font-family: Nunito;
-  font-size: 1.8rem;
-  line-height: 2.5rem;
-  color: #F8F8F9;
-  border-radius: 10px;
-  background-color: #DA0175;
-  padding: 6px 55px;
-  width: 100%;
-}
-
-.tela_login_direita_form_nao-possui {
-  font-family: Nunito;
-  font-size: 1.4rem;
-  line-height: 130%;
-  color: #3F3F55;
-  margin-top: 1.5rem;
-}
-
-.tela_login_direita_form_nao-possui_cadastre-se {
-  color: var(--rosa-forte);
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .tela_login_esquerda {
-    display: none;
-  }
-
-  .tela_login_direita {
-    width: 100vw;
-  }
-}
-.botao{
-  margin-top: 15px;
 }
