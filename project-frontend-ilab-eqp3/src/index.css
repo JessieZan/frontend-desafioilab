@@ -1,5 +1,16 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +21,155 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/**/
+
+.tela_login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  background-color: #F8F8F9;
+}
+
+.tela_login_esquerda {
+  background-image: url('../../assets/background-tela-login.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30%;
+  height: 100%;
+  display: flex;
+}
+
+.tela_login_esquerda_titulo {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 130%;
+  color: var(--verde-forte);
+  margin: 16rem 4.7rem 0 4.7rem;
+  text-align: center;
+}
+
+
+.tela_login_direita {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tela_login_direita_titulo {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 130%;
+  color: #343447;
+  margin-bottom: 5.8rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 344px;
+  font-size: 1.6rem;
+}
+
+.form_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input_login {
+  border: 1.5px solid #D0D5DD; 
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  padding: 1rem 1.4rem;
+}
+
+.email_login {
+  margin-bottom: 2rem;
+}
+
+.form_label_login {
+  font-family: Nunito;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 20px;
+  color: #344054;
+  margin-bottom: 0.6rem;
+}
+
+.form-error {
+  color: #E70000;
+  font-family: Inter;
+  font-size: 1.0rem;
+  line-height: 20px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.senha_login{
+  position: relative;
+}
+
+.tela_login_direita_esqueceu_senha {
+  font-family: Nunito;
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-decoration-line: underline;
+  color: var(--rosa-forte);
+  position: absolute;
+  left: 60%;
+}
+
+.tela_login_direita_div_botao {
+  margin-top: 4.6rem;
+}
+
+.tela_login_direita_botao_login {
+  font-family: Nunito;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  color: #F8F8F9;
+  border-radius: 10px;
+  background-color: #DA0175;
+  padding: 6px 55px;
+  width: 100%;
+}
+
+.tela_login_direita_form_nao-possui {
+  font-family: Nunito;
+  font-size: 1.4rem;
+  line-height: 130%;
+  color: #3F3F55;
+  margin-top: 1.5rem;
+}
+
+.tela_login_direita_form_nao-possui_cadastre-se {
+  color: var(--rosa-forte);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .tela_login_esquerda {
+    display: none;
+  }
+
+  .tela_login_direita {
+    width: 100vw;
+  }
+}
+.botao{
+  margin-top: 15px;
 }
