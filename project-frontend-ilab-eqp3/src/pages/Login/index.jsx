@@ -9,7 +9,7 @@ function Login() {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [usuarioNaoExiste, setUsuarioNaoExiste] = useState(true);
+  const [usuarioNaoExiste, setUsuarioNaoExiste] = useState(false);
   //TODO: Implementar logica para buscar se o email e senha existem
 
   async function handleLogin(e) {
