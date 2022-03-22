@@ -4,6 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import './styles.css'
 
+import {useHistory} from 'react-router-dom';
+
 
 function Login() {
 
@@ -11,6 +13,8 @@ function Login() {
   const [senha, setSenha] = useState('');
   const [usuarioNaoExiste, setUsuarioNaoExiste] = useState(false);
   //TODO: Implementar logica para buscar se o email e senha existem
+
+  const history = useHistory();
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -26,6 +30,8 @@ function Login() {
         progress: undefined,
       });
     }
+
+    history.push('/home');
 
     return toast.success('Login bem sucedido!', {
       position: "top-right",

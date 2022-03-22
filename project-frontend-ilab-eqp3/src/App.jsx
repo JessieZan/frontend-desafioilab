@@ -18,7 +18,7 @@ function App() {
 
   //TODO: Apos ter a logica de login, refatorar para puxar o token e armazenar
 
-  const token = false;
+  const token = true;
 
   function RotasProtegidas(props) {
     return (
