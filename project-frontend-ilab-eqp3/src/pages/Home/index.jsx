@@ -38,6 +38,7 @@ export default function Home() {
  };
 
   useEffect(() => {
+    //quando receberem o token do login temos que passar por propin driling ou contexto até aqui para podermos valida-los.
     setTesteToken(`eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0NWl0YWxvQGVtYWlsLmNvbSw3MTEyMzQ1Njc4OSIsImlzcyI6IkZvb2RMb3ZlcnMiLCJleHAiOjE2NDgzMjc1MzV9.dOy1MVKRwwVIRdG0RWK892nb1gEAH4ty67ePMvWbt6w`);
 
    if (testeToken) {
