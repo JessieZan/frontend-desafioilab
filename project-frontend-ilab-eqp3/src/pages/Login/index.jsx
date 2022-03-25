@@ -3,19 +3,26 @@ import {useState} from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import './styles.css'
-
+import motoboy from "../../assets/motoboy.png"
+import nuvens from "../../assets/nuvem.png"
+import useLoginProvider from "../../hooks/useLoginProvider"
 import {useHistory} from 'react-router-dom';
 
 
 function Login() {
 
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const  {
+    setToken
+  } = useLoginProvider();
+
+  const [telefone, setTelefone] = useState("")
+  const [email, setEmail] = useState("")
+  const [ senha, setSenha] = useState("")
   const [usuarioNaoExiste, setUsuarioNaoExiste] = useState(false);
   //TODO: Implementar logica para buscar se o email e senha existem
 
   const history = useHistory();
-
+  
   async function handleLogin(e) {
     e.preventDefault();
 
@@ -30,6 +37,22 @@ function Login() {
         progress: undefined,
       });
     }
+
+  const promise = await fetch('http://localhost:8080/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type' : 'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      telefone: telefone,
+      senha: senha
+    })
+  });
+
+    const response = await promise.json();
+    const credenciais = response.token.replace("Bearer ", "")
+    setToken(credenciais);
 
     history.push('/home');
 
@@ -61,15 +84,20 @@ function Login() {
         theme="colored"
       />
 
+      <div className='motoboy-login'>
+      <img src={nuvens} alt="nuvens" className='nuvens'/>
+        <img src={motoboy} alt="motoboy-login" className='motoboy'/>
+      </div>
+
       <section className="tela_login_direita">
         <h2 className="tela_login_direita_titulo">Faça seu login!</h2>
 
         <form onSubmit={handleLogin}>
           <div className="form_input email_login">
-            <label htmlFor="input-email" className="form_label_login">E-mail</label>
+            <label htmlFor="input-email" className="form_label_login">E-mail ou telefone</label>
             <input
               className="input_login"
-              type="email"
+              type="text"
               name="input-email"
               placeholder="Digite seu e-mail"
               value={email}

@@ -2,7 +2,7 @@ import React from "react";
 import Login from './pages/Login';
 import Home from './pages/Home';
 import useUser from './hooks/useUser';
-
+import useLoginProvider from "./hooks/useLoginProvider";
 
 import {
   BrowserRouter,
@@ -14,11 +14,9 @@ import {
 
 
 function App() {
-  //const { token } = useUser();
+  const { token } = useLoginProvider();
 
   //TODO: Apos ter a logica de login, refatorar para puxar o token e armazenar
-
-  const token = true;
 
   function RotasProtegidas(props) {
     return (
