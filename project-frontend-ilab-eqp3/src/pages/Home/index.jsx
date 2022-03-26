@@ -66,7 +66,7 @@ function formataData(data) {
             <span >{data.cliente.nome}</span>
             <span >{`R$ ${(data.valorTotal/100).toFixed(2)}`}</span>
             <span className='dataPedido'>{formataData(new Date(data.dataCriacao))}</span>
-            <span >{data.status}</span>
+            <span className='statusPedido'>{data.status}</span>
           </div>
 
           );

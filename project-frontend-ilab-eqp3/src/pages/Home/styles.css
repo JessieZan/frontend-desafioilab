@@ -88,3 +88,10 @@ header{
   max-width: 30px;
   margin-right: 100px;
 }
+
+.statusPedido{
+  background: #EA1D2C;
+  border-radius: 60px;
+  color: #FFFFFF;
+  padding: 10px;
+}
