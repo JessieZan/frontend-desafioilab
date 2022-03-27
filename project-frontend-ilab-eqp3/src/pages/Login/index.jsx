@@ -55,16 +55,7 @@ function Login() {
     setToken(credenciais);
 
     history.push('/home');
-
-    return toast.success('Login bem sucedido!', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
+    document.location.reload(true);
   }
 
 
