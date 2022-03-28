@@ -15,7 +15,6 @@ export default function IniciarTracking({setModalOpen, idPedido}) {
   });
 
   async function handleIniciarTracking(params) {
-    //handleEditaUsuario(idPedido);
     console.log("pedido iniciado", idPedido);
 
     setModalConcluirPedido(true);

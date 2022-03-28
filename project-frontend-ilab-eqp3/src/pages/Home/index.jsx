@@ -1,17 +1,23 @@
 import React, {useState, useEffect} from 'react'
 import './styles.css';
 import IniciarTracking from '../../components/IniciarTracking';
+import PerfilUsuario from '../../components/PerfilUsuario';
 
 import useLoginProvider from "../../hooks/useLoginProvider";
 export default function Home() {
   const  {
-    token
+    token,
+    handleLogout,
+    setDadosLogado,
+    nomeLogado,
+    idLogado,
+    emailLogado,
+    telefoneLogado
   } = useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [idPedido, setIdPedido] = useState(0);
   const [pedidos, setPedidos] = useState([]);
-  const [testeToken, setTesteToken] = useState(0);
   
   function handleAbrirModalTracking(pedidoID) {
     setModalOpen(true);
@@ -38,12 +44,9 @@ export default function Home() {
            console.log(error.message);
     }
  };
-
+ 
   useEffect(() => {
-    // if (token) {
-    //   const { exp } = jwt_decode(token)
-    //    console.log(exp)
-    //   }
+      setDadosLogado(token)
       const carregarDados = async () => {
        if (token) {
          await handleMostraPedidosDisponiveis();
@@ -57,9 +60,10 @@ function formataData(data) {
 }
   return (
     <>
-      <header>Pedidos</header>
     <main className="main_app">
-      <h1 className="main_app_title">Tela Entregador</h1>
+      <header onClick={(e)=>handleLogout(e)}>Pedidos</header>
+    <PerfilUsuario/>
+      <h1 className="main_app_title">Portal do Entregador</h1>
       <section className="main_app_section_pedidos">
         <button className='verPedidosButton'  onClick={handleMostraPedidosDisponiveis}>Atualizar Pedidos Disponiveis</button>
         <h2 className="main_app_section_pedidos_title" > Pedidos disponíveis</h2>
@@ -69,9 +73,9 @@ function formataData(data) {
           <div className="pedido" onClick={(data)=>handleAbrirModalTracking(data.id)}>
             <span >{`ID #${data.id}`}</span>
             <span >{data.cliente.nome}</span>
-            <span >{`R$ ${(data.valorTotal/100).toFixed(2)}`}</span>
+            <span className='enderecoPedido' >{`${data.enderecoEntrega.split(',')[0]} - ${data.enderecoEntrega.split(',')[3]}`}</span>
             <span className='dataPedido'>{formataData(new Date(data.dataCriacao))}</span>
-            <span className='statusPedido'>{data.status}</span>
+            <span className='statusPedido'>{data.status[0].toUpperCase() + data.status.substr(1).replace('_',' ')}</span>
           </div>
 
           );

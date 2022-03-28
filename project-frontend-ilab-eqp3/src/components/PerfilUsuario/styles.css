@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .linhaHorizontal {
+    width: 89vw;
+    margin-left: 32px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    width: 87vw;
+  }
+  
+  .tituloPrincipalClientes {
+    color: #0e8750;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 84px;
+    margin-left: 82px;
+    margin-bottom: 4px;
+    cursor: pointer;
+  }
+  
+  .tituloDetalhesClientes {
+    color: #6e6e85;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 84px;
+    margin-left: 15px;
+    margin-bottom: 4px;
+    align-self: flex-start;
+  }
+  
+  .headerTitle {
+    display: flex;
+  }
+  .utilidadesPaginaClientes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 87vw;
+    margin-left: 3.5vw;
+    margin-top: 34px;
+  }
+  .boxIconeNome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 154px;
+    height: 34px;
+    margin-right: 15px;
+  }
+  .boxIconeNome h3 {
+    color: #3f3f55;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    margin-left: 22px;
+  }
+  .boxAdicionaEPesquisa {
+    display: flex;
+    align-items: center;
+  }
+  
+  .boxAdicionaEPesquisa .botaoAdicionaCliente {
+    all: unset;
+    cursor: pointer;
+    background: #da0175;
+    border-radius: 10px;
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+    color: #f8f8f9;
+    width: 266px;
+    height: 33px;
+    margin-right: 10px;
+    text-align: center;
+  }
+  
+  .contemInputPesquisa {
+    display: flex;
+    position: relative;
+  }
+  .contemInputPesquisa img {
+    position: absolute;
+    top: 7.5px;
+    right: 8px;
+  }
+  .pesquisa {
+    background: #ffffff;
+    border-radius: 10px;
+    width: 318px;
+    height: 39px;
+    padding: 8px;
+  }
+  .iconeRosa {
+    margin-right: 10px;
+  }
