@@ -6,12 +6,46 @@ import ConcluirPedido from '../ConcluirPedido'
 export default function IniciarTracking({setModalOpen, idPedido}) {
 
   const [modalConcluirPedido, setModalConcluirPedido] = useState(false);
+  const [dadosEntregador, setDadosCobranca] = useState({
+    cliente_id: "",
+    descricao: "",
+    vencimento: "",
+    valor: "",
+    status: ""
+  });
 
   async function handleIniciarTracking(params) {
+    //handleEditaUsuario(idPedido);
     console.log("pedido iniciado", idPedido);
 
     setModalConcluirPedido(true);
   }
+  // const handleEditaUsuario = async (idPedido) => {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:8080/pedidos/atribuir/${idPedido}`,
+  //       {
+  //         method: "PUT",
+  //         headers: {
+  //           "content-type": "application/json",
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //         body: JSON.stringify(              {
+              //   id: 1,
+              //   nome: "",
+              //   email: "",
+              //   telefone: "",
+              //   emEntrega: false 
+              // }),
+  //       }
+  //     );
+
+  //     const data = await response.json();
+  //     console.log(data);
+  //   } catch (error) {
+  //       console.log(error.message);
+  //   }
+  // };
 
   return (
     <main className="modal_iniciarTracking">
