@@ -75,10 +75,7 @@ function Login() {
         theme="colored"
       />
 
-      <div className='motoboy-login'>
-      <img src={nuvens} alt="nuvens" className='nuvens'/>
-        <img src={motoboy} alt="motoboy-login" className='motoboy'/>
-      </div>
+   
 
       <section className="tela_login_direita">
         <h2 className="tela_login_direita_titulo">Faça seu login!</h2>
