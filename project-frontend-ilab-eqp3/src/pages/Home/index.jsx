@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import './styles.css';
 import IniciarTracking from '../../components/IniciarTracking';
-import useLoginProvider from "../../hooks/useLoginProvider"
 
+import useLoginProvider from "../../hooks/useLoginProvider";
 export default function Home() {
- 
   const  {
     token
   } = useLoginProvider();
@@ -12,10 +11,7 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [idPedido, setIdPedido] = useState(0);
   const [pedidos, setPedidos] = useState([]);
-  const [mostraSubTitulo, setMostraSubTitulo] = useState(false);
   const [testeToken, setTesteToken] = useState(0);
-
-
   
   function handleAbrirModalTracking(pedidoID) {
     setModalOpen(true);
@@ -38,35 +34,35 @@ export default function Home() {
          const data = await response.json();
          setPedidos(data);
          console.log(data);
-         setMostraSubTitulo(true);
        } catch (error) {
            console.log(error.message);
     }
  };
 
   useEffect(() => {
-   if (token) {
-     const { exp } = jwt_decode(token)
-      console.log(exp)
+    // if (token) {
+    //   const { exp } = jwt_decode(token)
+    //    console.log(exp)
+    //   }
+      const carregarDados = async () => {
+       if (token) {
+         await handleMostraPedidosDisponiveis();
+       }
      }
-     const carregarDados = async () => {
-      if (token) {
-        await handleMostraPedidosDisponiveis();
-      }
-    }
-    carregarDados();
-},[])
+     carregarDados();
+ },[])
 function formataData(data) {
   const formato = { year: 'numeric', month: 'numeric', day: 'numeric' ,hour:'numeric',minute:'numeric'};
   return data.toLocaleDateString('pt-BR', formato);
 }
   return (
-    <main className="main_app">
+    <>
       <header>Pedidos</header>
+    <main className="main_app">
       <h1 className="main_app_title">Tela Entregador</h1>
       <section className="main_app_section_pedidos">
         <button className='verPedidosButton'  onClick={handleMostraPedidosDisponiveis}>Atualizar Pedidos Disponiveis</button>
-        {mostraSubTitulo?<h2 className="main_app_section_pedidos_title" > Pedidos disponíveis</h2>:null}
+        <h2 className="main_app_section_pedidos_title" > Pedidos disponíveis</h2>
         <div className="main_app_section_pedidos_listagem">
         {pedidos.map((data) => {
           return(           
@@ -85,5 +81,6 @@ function formataData(data) {
       </section>
       {modalOpen ? <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} /> : null} 
     </main>
+    </>
   )
 }

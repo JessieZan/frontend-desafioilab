@@ -6,6 +6,8 @@
   justify-content: center;
   background-color: #E2E2E2;;
   flex-direction: column;
+  position: absolute;
+  top: 100px;
 }
 section{
   display: flex;
@@ -79,6 +81,7 @@ header{
   width: 100%;
   height: 70px;
   padding-top: 10px;
+  margin-bottom: 150px;
 }
 
 .dataPedido{
