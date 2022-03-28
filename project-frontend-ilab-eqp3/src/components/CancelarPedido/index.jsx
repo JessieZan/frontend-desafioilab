@@ -5,24 +5,7 @@ import Botao from '../Button'
 export default function ConcluirPedido({setModalOpen, idPedido}) {
 
   async function concluirPedido(params) {
-    try {
-      const response = await fetch(
-        `${process.env}/pedidos/finalizado/${idPedido}`,
-        {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          
-        }
-      );
-
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-        console.log(error.message);
-    }
+    window.alert("CONCLUIU ESSA POHA");
   }
 
   return (
