@@ -1,14 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import './styles.css';
 import IniciarTracking from '../../components/IniciarTracking';
+import useLoginProvider from "../../hooks/useLoginProvider"
 
 export default function Home() {
+ 
+  const  {
+    token,
+    setToken
+  } = useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [idPedido, setIdPedido] = useState(0);
   const [pedidos, setPedidos] = useState([]);
   const [mostraSubTitulo, setMostraSubTitulo] = useState(false);
   const [testeToken, setTesteToken] = useState(0);
+
+
   
   function handleAbrirModalTracking(pedidoID) {
     setModalOpen(true);
@@ -24,7 +32,7 @@ export default function Home() {
             method: "GET",
             headers: {
               "content-type": "application/json",
-              Authorization: `Bearer ${testeToken}`
+              Authorization: `Bearer ${token}`
             }
           }
          );
@@ -45,7 +53,14 @@ export default function Home() {
      //const { exp } = jwt_decode(testeToken)
        //console.log(exp)
      }
-    handleMostraPedidosDisponiveis();
+     const carregarDados = async () => {
+      if (token) {
+        await handleMostraPedidosDisponiveis();
+
+      }
+    }
+    carregarDados();
+    //await  handleMostraPedidosDisponiveis();
 },[])
 function formataData(data) {
   const formato = { year: 'numeric', month: 'numeric', day: 'numeric' ,hour:'numeric',minute:'numeric'};

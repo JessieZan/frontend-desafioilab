@@ -90,7 +90,7 @@ function Login() {
               className="input_login"
               type="text"
               name="input-email"
-              placeholder="Digite seu e-mail"
+              placeholder="Digite seu e-mail ou telefone"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required />
