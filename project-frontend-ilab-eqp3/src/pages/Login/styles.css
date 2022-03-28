@@ -6,7 +6,8 @@
   align-items: center;
   justify-content: center;
   background-image: url("../../assets/backgound.png");
-  background-size: cover;
+  background-color: rgb(240, 110, 18);
+  background-size: auto;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -21,7 +22,7 @@
   color: #343447;
   margin-bottom: 3rem;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 3rem;
   width: 100%;
 }
 
@@ -51,7 +52,7 @@ input {
 }
 
 .email_login {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .form_label_login {
@@ -65,7 +66,7 @@ input {
 
 
 .tela_login_direita_div_botao {
-  margin-top: 3.6rem;
+  margin-top: 2.6rem;
   width: 100%;
 }
 
@@ -73,56 +74,96 @@ input {
   padding: 20px 40px;
   box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
-  width: 400px;
   margin-left: 400px;
   z-index: 1;
   background-color: white;
-  /* position: absolute; */
+  width: 500px;
 }
 
 
-@media screen and (min-width: 1024px) {
-
-  .tela_login{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(247, 201, 208);
-    
-  }
-
-  .tela_login_direita{
-    width: 35%;
-    margin-left: 600px;
-  }
-}
-
-@media screen and (max-width: 1023px ) {
-
-.form_label_login {
-  font-size: 1.3rem;
-  margin-left: 8px;
-}
+@media only screen and (max-width: 390px) {
   .input_login{
-    width: 100%;
     font-size: 1rem;
   }
+  .tela_login_direita_titulo{
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .form_label_login{
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
   .tela_login{
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgb(247, 201, 208);
+  }
+  .tela_login_direita{
+    margin-top: 18rem;
+    margin-right: 25rem;
+    height: 400px;
+    padding: 10px 20px;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+  .tela_login_direita_titulo{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .form_label_login{
+    font-size: 0.8rem;
+    margin-bottom: 0rem;
+  }
+  .tela_login{
+    background-color: rgb(247, 201, 208);
+  }
+  .tela_login_direita{
+    margin-top: 17rem;
+    margin-right: 25rem;
+    min-width: 300px;
+    padding: 10px 20px;
+    height: 400px;
+  }
+  .tela_login_direita_div_botao{
+    margin-top: 2rem;
+  }
+} 
+
+@media (min-width: 769px) and (max-width: 1023px){
+  .tela_login_direita_titulo{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .form_label_login{
+    font-size: 0.8rem;
+    margin-bottom: 0rem;
+  }
+  .tela_login{
     background-color: rgb(247, 201, 208);
     background-size: auto;
   }
-
   .tela_login_direita{
-    width: 40%;
-    margin-right: 20px;
-    margin-top: 200px;
+    margin-top: 17rem;
+    margin-right: 5rem;
+    min-width: 400px;
+    padding: 10px 25px;
+    height: 400px;
   }
-}
+  .tela_login_direita_div_botao{
+    margin-top: 2rem;
+  }
+} 
 
+@media (min-width: 1024px) {
+  
+  .tela_login{
+    background-size: cover;
+  }
+  .tela_login_direita{
+    min-width: 700px;
+    height: 500px;
+  }
+
+} 
