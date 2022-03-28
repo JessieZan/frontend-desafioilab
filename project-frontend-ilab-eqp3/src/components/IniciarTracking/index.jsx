@@ -23,7 +23,7 @@ export default function IniciarTracking({setModalOpen, idPedido}) {
   // const handleEditaUsuario = async (idPedido) => {
   //   try {
   //     const response = await fetch(
-  //       `http://localhost:8080/pedidos/atribuir/${idPedido}`,
+  //       `${import.meta.env.VITE_APP_BASE_URL}/pedidos/atribuir/${idPedido}`,
   //       {
   //         method: "PUT",
   //         headers: {
