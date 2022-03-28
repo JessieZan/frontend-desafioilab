@@ -6,8 +6,7 @@ import useLoginProvider from "../../hooks/useLoginProvider"
 export default function Home() {
  
   const  {
-    token,
-    setToken
+    token
   } = useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -46,21 +45,16 @@ export default function Home() {
  };
 
   useEffect(() => {
-    //quando receberem o token do login temos que passar por propin driling ou contexto até aqui para podermos valida-los.
-    setTesteToken(`eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0NWl0YWxvQGVtYWlsLmNvbSw3MTEyMzQ1Njc4OSIsImlzcyI6IkZvb2RMb3ZlcnMiLCJleHAiOjE2NDgzMjc1MzV9.dOy1MVKRwwVIRdG0RWK892nb1gEAH4ty67ePMvWbt6w`);
-
-   if (testeToken) {
-     //const { exp } = jwt_decode(testeToken)
-       //console.log(exp)
+   if (token) {
+     const { exp } = jwt_decode(token)
+      console.log(exp)
      }
      const carregarDados = async () => {
       if (token) {
         await handleMostraPedidosDisponiveis();
-
       }
     }
     carregarDados();
-    //await  handleMostraPedidosDisponiveis();
 },[])
 function formataData(data) {
   const formato = { year: 'numeric', month: 'numeric', day: 'numeric' ,hour:'numeric',minute:'numeric'};
@@ -71,7 +65,7 @@ function formataData(data) {
       <header>Pedidos</header>
       <h1 className="main_app_title">Tela Entregador</h1>
       <section className="main_app_section_pedidos">
-        <button className='verPedidosButton'  onClick={handleMostraPedidosDisponiveis}>Ver Pedidos</button>
+        <button className='verPedidosButton'  onClick={handleMostraPedidosDisponiveis}>Atualizar Pedidos Disponiveis</button>
         {mostraSubTitulo?<h2 className="main_app_section_pedidos_title" > Pedidos disponíveis</h2>:null}
         <div className="main_app_section_pedidos_listagem">
         {pedidos.map((data) => {
