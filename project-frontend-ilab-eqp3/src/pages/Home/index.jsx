@@ -2,7 +2,12 @@ import React, {useState, useEffect} from 'react'
 import './styles.css';
 import IniciarTracking from '../../components/IniciarTracking';
 
+import useLoginProvider from "../../hooks/useLoginProvider";
 export default function Home() {
+  const  {
+    token,
+    setToken
+  } = useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [idPedido, setIdPedido] = useState(0);
@@ -24,7 +29,7 @@ export default function Home() {
             method: "GET",
             headers: {
               "content-type": "application/json",
-              Authorization: `Bearer ${testeToken}`
+              Authorization: `Bearer ${token}`
             }
           }
          );

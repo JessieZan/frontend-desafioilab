@@ -53,7 +53,7 @@ function Login() {
     const response = await promise.json();
     const credenciais = response.token.replace("Bearer ", "")
     setToken(credenciais);
-
+    
     history.push('/home');
     document.location.reload(true);
   }
