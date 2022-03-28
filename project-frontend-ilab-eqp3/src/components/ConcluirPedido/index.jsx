@@ -1,16 +1,20 @@
 import React from 'react'
 import './styles.css'
 import Botao from '../Button'
+import useLoginProvider from '../../hooks/useLoginProvider'
 
-export default function ConcluirPedido({setModalOpen, idPedido}) {
+export default function ConcluirPedido({ setModalOpen, idPedido, idClearWatch }) {
+  const { token } = useLoginProvider();
 
   async function concluirPedido(params) {
-    window.alert("CONCLUIU ESSA POHA");
+    navigator.geolocation.clearWatch(idClearWatch);
+
+    console.log(`encerrando pedido ${idPedido}`)
   }
 
   return (
     <main className="modal_iniciarTracking">
-      <section className="modal_iniciarTracking_conteudo">        
+      <section className="modal_iniciarTracking_conteudo">
         <h1 className="modal_iniciarTracking_title">Concluir entrega?</h1>
 
         <div className="modal_iniciarTracking_botoes">

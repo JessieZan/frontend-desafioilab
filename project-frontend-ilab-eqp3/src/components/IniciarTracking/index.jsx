@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.css'
 import Botao from '../Button'
 import ConcluirPedido from '../ConcluirPedido'
+import useLoginProvider from '../../hooks/useLoginProvider'
 
-export default function IniciarTracking({setModalOpen, idPedido}) {
-
+export default function IniciarTracking({ setModalOpen, idPedido }) {
+  const { token } = useLoginProvider();
   const [modalConcluirPedido, setModalConcluirPedido] = useState(false);
   const [dadosEntregador, setDadosCobranca] = useState({
     cliente_id: "",
@@ -14,38 +15,54 @@ export default function IniciarTracking({setModalOpen, idPedido}) {
     status: ""
   });
 
-  async function handleIniciarTracking(params) {
-    //handleEditaUsuario(idPedido);
-    console.log("pedido iniciado", idPedido);
+  // GEOLOCATION  UTIL
+  const [localizacao, setLocalizacao] = useState('');
+  const [idClearWatch, setIdClearWatch] = useState('');
+  const options = {
+    enableHighAccuracy: true
+  };
+  function transferCoords(pos) {
+    const coords = pos.coords;
+    setLocalizacao(`${coords.latitude} ${coords.longitude}`)
+  }
 
+  function errorTransferCoords(error) {
+    console.warn("ERROR TO GET LOCALIZATION");
+  }
+  // GEOLOCATION  UTIL
+
+  async function handleIniciarTracking() {
+    console.log("pedido iniciado", idPedido);
+    const gps = navigator.geolocation.watchPosition(
+      transferCoords,
+      errorTransferCoords,
+      options)
+    setIdClearWatch(gps);
     setModalConcluirPedido(true);
   }
-  // const handleEditaUsuario = async (idPedido) => {
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:8080/pedidos/atribuir/${idPedido}`,
-  //       {
-  //         method: "PUT",
-  //         headers: {
-  //           "content-type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //         body: JSON.stringify(              {
-              //   id: 1,
-              //   nome: "",
-              //   email: "",
-              //   telefone: "",
-              //   emEntrega: false 
-              // }),
-  //       }
-  //     );
 
-  //     const data = await response.json();
-  //     console.log(data);
-  //   } catch (error) {
-  //       console.log(error.message);
-  //   }
-  // };
+  useEffect(async () => {
+    if (localizacao.length === 0) {return;}
+    try {
+      const response = await fetch(`http://localhost:8080/pedidos/cadastrar-coordenada`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            "idPedido": idPedido,
+            "idEntregador": 1,
+            "timestamp": new Date(),
+            "coordenada": localizacao
+          }),
+      });
+
+    } catch (err) {
+      console.log(err)
+    }
+
+  }, [localizacao]);
 
   return (
     <main className="modal_iniciarTracking">
@@ -54,7 +71,7 @@ export default function IniciarTracking({setModalOpen, idPedido}) {
 
         <div className="modal_iniciarTracking_botoes">
           <div className="modal_iniciarTracking_botoes_confirmar" onClick={handleIniciarTracking}>
-            <Botao />
+            <Botao texto={"Iniciar"} />
           </div>
           <div className="modal_iniciarTracking_botoes_cancelar" onClick={() => setModalOpen(false)}>
             <Botao texto={"Cancelar"} />
@@ -62,8 +79,8 @@ export default function IniciarTracking({setModalOpen, idPedido}) {
         </div>
       </section>
 
-      {modalConcluirPedido ? <ConcluirPedido /> : null}
-      
+      {modalConcluirPedido ? <ConcluirPedido idPedido={idPedido} idClearWatch={idClearWatch} /> : null}
+
     </main>
   )
 }
