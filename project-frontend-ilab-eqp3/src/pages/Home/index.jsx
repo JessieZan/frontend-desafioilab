@@ -3,6 +3,7 @@ import './styles.css';
 import IniciarTracking from '../../components/IniciarTracking';
 import useLoginProvider from "../../hooks/useLoginProvider"
 
+import useLoginProvider from "../../hooks/useLoginProvider";
 export default function Home() {
   const { token } = useLoginProvider();
   const [modalOpen, setModalOpen] = useState(false);
