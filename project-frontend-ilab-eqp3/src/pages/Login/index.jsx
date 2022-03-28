@@ -38,7 +38,7 @@ function Login() {
       });
     }
 
-  const promise = await fetch('http://localhost:8080/login', {
+  const promise = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json'
