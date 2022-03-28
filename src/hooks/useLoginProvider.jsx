@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import {useLocalStorage} from 'react-use';
+import { useLocalStorage } from 'react-use';
 
 function useLoginProvider() {
 

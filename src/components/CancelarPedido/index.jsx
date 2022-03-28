@@ -1,6 +1,6 @@
-import React from 'react'
-import './styles.css'
-import Botao from '../Button'
+import React from 'react';
+import Botao from '../Button';
+import './styles.css';
 
 export default function ConcluirPedido({setModalOpen, idPedido}) {
 
