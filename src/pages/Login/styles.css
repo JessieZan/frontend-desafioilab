@@ -66,7 +66,6 @@ input {
   width: 100%;
 }
 
-
 .tela_login_direita {
   padding: 20px 40px;
   box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.1);
@@ -76,7 +75,6 @@ input {
   background-color: white;
   width: 500px;
 }
-
 
 @media only screen and (max-width: 390px) {
   .input_login {
@@ -103,7 +101,6 @@ input {
 }
 
 @media (min-width: 391px) and (max-width: 768px) {
-
   .tela_login_direita_titulo {
     font-size: 1.5rem;
     margin-top: 2rem;
@@ -118,7 +115,6 @@ input {
     background-color: rgb(247, 201, 208);
   }
   .tela_login_direita {
-
     margin-top: 17rem;
     margin-right: 25rem;
     min-width: 300px;
@@ -133,7 +129,6 @@ input {
 
 @media (min-width: 769px) and (max-width: 1023px) {
   .tela_login_direita_titulo {
-
     font-size: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -169,4 +164,3 @@ input {
     height: 500px;
   }
 }
-

@@ -1,38 +1,37 @@
 .main_app {
-  cursor:default;
+  cursor: default;
   min-height: 100vh;
 
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFFFFF; 
+  background-color: #ffffff;
   /* background-color: #E2E2E2;  */
   flex-direction: column;
   position: absolute;
-  background-image: url('../../assets/mobile-delivery-man.jpg');
+  background-image: url("../../assets/mobile-delivery-man.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position:50%; 
-
+  background-position: 50%;
 }
-.main_app_title, .main_app_section_pedidos_title{
-  color:#37474F;
-  background-color: #FFFFFF;
+.main_app_title,
+.main_app_section_pedidos_title {
+  color: #37474f;
+  background-color: #ffffff;
   padding: 10px;
-  border: #EA1D2C solid 1px;
+  border: #ea1d2c solid 1px;
   border-radius: 12px;
 }
-.main_app_section_pedidos_title{
+.main_app_section_pedidos_title {
 }
-section{
+section {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
 }
 .main_app_section_pedidos_listagem {
-
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -42,18 +41,17 @@ section{
   height: 650px;
   overflow-y: scroll;
   margin-bottom: 100px;
-
 }
 
 .pedido {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 8px;
   width: 750px;
   height: auto;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -63,11 +61,10 @@ section{
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
   padding: 15px;
-  border: #EA1D2C solid 1px;
- 
+  border: #ea1d2c solid 1px;
 }
 
-.enderecoPedido{
+.enderecoPedido {
   width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -80,12 +77,12 @@ section{
   max-width: 100px;
 }
 
-.verPedidosButton{
-  background: #EA1D2C;
+.verPedidosButton {
+  background: #ea1d2c;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
 
-  font-family: 'Poppins','sans-serif';
+  font-family: "Poppins", "sans-serif";
 
   font-style: normal;
   font-weight: 600;
@@ -100,10 +97,9 @@ section{
   margin-bottom: 25px;
 }
 
-
-header{
-  background: #EA1D2C;
-  font-family: 'Poppins';
+header {
+  background: #ea1d2c;
+  font-family: "Poppins";
 
   font-weight: 600;
   font-size: 32px;
@@ -111,16 +107,15 @@ header{
   align-items: center;
   text-align: center;
 
-  color: #FFFFFF;
-  position:absolute;
+  color: #ffffff;
+  position: absolute;
   top: 0;
   width: 100%;
   height: 70px;
   padding-top: 10px;
-
 }
 
-.dataPedido{
+.dataPedido {
   display: flex;
   align-items: center;
   text-align: center;
@@ -128,10 +123,9 @@ header{
   margin-right: 100px;
 }
 
-.statusPedido{
-  background: #EA1D2C;
+.statusPedido {
+  background: #ea1d2c;
   border-radius: 60px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 10px;
 }
-
