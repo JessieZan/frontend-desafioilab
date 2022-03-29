@@ -1,4 +1,5 @@
 import React from "react";
+
 import Login from './pages/Login';
 import Home from './pages/Home';
 import useUser from './hooks/useUser';
@@ -20,10 +21,9 @@ function App() {
 
   function RotasProtegidas(props) {
     return (
-      <Route
-        render={() => token ? (props.children) : (<Redirect to="/" />)}
-      />
-    )
+      <Route render={() => (token ? props.children : <Redirect to="/" />)} />
+    );
+
   }
 
   return (

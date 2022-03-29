@@ -15,7 +15,7 @@
 .modal_iniciarTracking_conteudo {
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 30px;
   text-align: justify;
   padding: 20px 50px;
@@ -26,4 +26,6 @@
   display: flex;
   gap: 10px;
   justify-content: space-between;
+
 }
+

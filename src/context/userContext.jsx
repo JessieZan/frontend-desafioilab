@@ -1,4 +1,6 @@
-import { createContext } from "react"
+
+import { createContext } from "react";
+
 import useLoginProvider from "../hooks/useLoginProvider";
 const UserContext = createContext({});
 
@@ -10,6 +12,8 @@ export function UserProvider(props) {
       {props.children}
     </UserContext.Provider>
   );
-};
+
+}
 
 export default UserContext;
+

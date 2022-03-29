@@ -31,6 +31,7 @@ function useLoginProvider() {
     setTelefoneLogado(sub.split(',')[3]);
   
   };
+
   return {
     token,
     setToken,
@@ -45,3 +46,4 @@ function useLoginProvider() {
 }
 
 export default useLoginProvider;
+

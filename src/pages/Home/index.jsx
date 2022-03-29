@@ -21,11 +21,13 @@ export default function Home() {
   
   function handleAbrirModalTracking(pedidoID) {
     console.log(pedidoID)
+
     setModalOpen(true);
     setIdPedido(pedidoID);
   }
 
   const handleMostraPedidosDisponiveis = async () => {
+
         try {
           const response = await fetch(
           `${import.meta.env.VITE_APP_BASE_URL}/pedidos/em-aberto`,
@@ -88,3 +90,4 @@ function formataData(data) {
     </>
   )
 }
+
