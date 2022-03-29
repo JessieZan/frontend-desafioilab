@@ -5,7 +5,7 @@ import useLoginProvider from "../../hooks/useLoginProvider.jsx"
 export default function PerfilUsuario({ nome, id, email, telefone }) {
 
   const {handleLogout} = useLoginProvider();
-  const nomes = nome.split("_");
+  const nomes = typeof nome === "string" ? nome.replace("_", " ") : "";
 
   return (
     <>
@@ -15,7 +15,7 @@ export default function PerfilUsuario({ nome, id, email, telefone }) {
             <b>ID:</b> #{id}
           </p>
           <p>
-            <b>Nome:</b> {`${nomes[0]} ${nomes[1]}`}
+            <b>Nome:</b> {nomes}
           </p>
         </div>
         <img
