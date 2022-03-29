@@ -112,7 +112,7 @@ export default function Home() {
           </div>
         </section>
         {modalOpen ? (
-          <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} />
+          <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} idLogado={idLogado} />
         ) : null}
       </main>
     </>

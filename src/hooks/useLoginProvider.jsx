@@ -3,7 +3,7 @@ import { useLocalStorage } from "react-use";
 
 function useLoginProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
-  const [idLogado, setIdLogado] = useState();
+  const [idLogado, setIdLogado] = useState('');
   const [nomeLogado, setNomeLogado] = useState();
   const [emailLogado, setEmailLogado] = useState();
   const [telefoneLogado, setTelefoneLogado] = useState();
@@ -27,6 +27,7 @@ function useLoginProvider() {
     setIdLogado(sub.split(",")[1]);
     setEmailLogado(sub.split(",")[2]);
     setTelefoneLogado(sub.split(",")[3]);
+
   }
 
   return {

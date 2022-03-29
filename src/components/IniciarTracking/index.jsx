@@ -4,8 +4,8 @@ import Botao from "../Button";
 import ConcluirPedido from "../ConcluirPedido";
 import "./styles.css";
 
-export default function IniciarTracking({ setModalOpen, idPedido }) {
-  const { token, idLogado } = useLoginProvider();
+export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
+  const { token } = useLoginProvider();
   const [modalConcluirPedido, setModalConcluirPedido] = useState(false);
   const [dadosEntregador, setDadosCobranca] = useState({
     cliente_id: "",
@@ -15,7 +15,6 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
 
     status: "",
   });
-
   // GEOLOCATION  UTIL
   const [localizacao, setLocalizacao] = useState("");
   const [idClearWatch, setIdClearWatch] = useState("");
@@ -39,7 +38,7 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
       errorTransferCoords,
       options
     );
-    
+    console.log(idLogado)
     try {
       const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/pedidos/atribuir/${idLogado}`, {
           method: "PUT",
