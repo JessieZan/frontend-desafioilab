@@ -1,33 +1,20 @@
 import React from 'react'
 import './styles.css'
 import Botao from '../Button'
+import useLoginProvider from '../../hooks/useLoginProvider'
 
-export default function ConcluirPedido({setModalOpen, idPedido}) {
+export default function ConcluirPedido({ setModalOpen, idPedido, idClearWatch }) {
+  const { token } = useLoginProvider();
 
   async function concluirPedido(params) {
-    try {
-      const response = await fetch(
-        `${process.env}/pedidos/finalizado/${idPedido}`,
-        {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          
-        }
-      );
+    navigator.geolocation.clearWatch(idClearWatch);
 
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-        console.log(error.message);
-    }
+    console.log(`encerrando pedido ${idPedido}`)
   }
 
   return (
     <main className="modal_iniciarTracking">
-      <section className="modal_iniciarTracking_conteudo">        
+      <section className="modal_iniciarTracking_conteudo">
         <h1 className="modal_iniciarTracking_title">Concluir entrega?</h1>
 
         <div className="modal_iniciarTracking_botoes">
