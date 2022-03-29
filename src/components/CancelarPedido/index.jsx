@@ -1,8 +1,10 @@
+
 import React from "react";
 import Botao from "../Button";
 import "./styles.css";
 
 export default function ConcluirPedido({ setModalOpen, idPedido }) {
+
   async function concluirPedido(params) {
     window.alert("CONCLUIU ESSA POHA");
   }
@@ -17,10 +19,12 @@ export default function ConcluirPedido({ setModalOpen, idPedido }) {
             className="modal_iniciarTracking_botoes_confirmar"
             onClick={concluirPedido}
           >
+
             <Botao texto={"Concluir"} />
           </div>
         </div>
       </section>
     </main>
   );
+
 }

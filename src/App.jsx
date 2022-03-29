@@ -1,8 +1,18 @@
 import React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+
+import Login from './pages/Login';
+import Home from './pages/Home';
+import useUser from './hooks/useUser';
 import useLoginProvider from "./hooks/useLoginProvider";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+
+
 
 function App() {
   const { token } = useLoginProvider();
@@ -13,6 +23,7 @@ function App() {
     return (
       <Route render={() => (token ? props.children : <Redirect to="/" />)} />
     );
+
   }
 
   return (
@@ -23,6 +34,7 @@ function App() {
         <RotasProtegidas>
           <Route path="/home" component={Home} />
         </RotasProtegidas>
+
       </Switch>
     </BrowserRouter>
   );

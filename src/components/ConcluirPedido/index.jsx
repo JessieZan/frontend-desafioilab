@@ -1,3 +1,4 @@
+
 import React from "react";
 import useLoginProvider from "../../hooks/useLoginProvider";
 import Botao from "../Button";
@@ -12,8 +13,8 @@ export default function ConcluirPedido({
 
   async function concluirPedido(params) {
     navigator.geolocation.clearWatch(idClearWatch);
-
     console.log(`encerrando pedido ${idPedido}`);
+
   }
 
   return (
@@ -22,10 +23,12 @@ export default function ConcluirPedido({
         <h1 className="modal_iniciarTracking_title">Concluir entrega?</h1>
 
         <div className="modal_iniciarTracking_botoes">
+
           <div
             className="modal_iniciarTracking_botoes_confirmar"
             onClick={concluirPedido}
           >
+
             <Botao texto={"Concluir"} />
           </div>
         </div>

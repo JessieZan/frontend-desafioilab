@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from "react";
 import useLoginProvider from "../../hooks/useLoginProvider";
 import Botao from "../Button";
 import ConcluirPedido from "../ConcluirPedido";
 import "./styles.css";
+
 
 export default function IniciarTracking({ setModalOpen, idPedido }) {
   const { token } = useLoginProvider();
@@ -12,6 +14,7 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
     descricao: "",
     vencimento: "",
     valor: "",
+
     status: "",
   });
 
@@ -38,6 +41,7 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
       errorTransferCoords,
       options
     );
+
     setIdClearWatch(gps);
     setModalConcluirPedido(true);
   }
@@ -71,6 +75,7 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
   return (
     <main className="modal_iniciarTracking">
       <section className="modal_iniciarTracking_conteudo">
+
         <h1 className="modal_iniciarTracking_title">
           Iniciar entrega do pedido?
         </h1>
@@ -91,9 +96,11 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
         </div>
       </section>
 
+
       {modalConcluirPedido ? (
         <ConcluirPedido idPedido={idPedido} idClearWatch={idClearWatch} />
       ) : null}
     </main>
   );
 }
+
