@@ -10,7 +10,6 @@
   background: rgba(145, 154, 150, 0.3);
   backdrop-filter: blur(4px);
   z-index: 2;
-
 }
 
 .modal_iniciarTracking_conteudo {
@@ -28,4 +27,3 @@
   gap: 10px;
   justify-content: space-between;
 }
-

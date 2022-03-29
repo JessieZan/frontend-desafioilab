@@ -1,14 +1,14 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-.card{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.card {
   display: flex;
   background-color: white;
   border-radius: 10px;
   padding: 3px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -22,18 +22,14 @@
   right: 9%;
   z-index: 4;
 }
-b{
+b {
   color: black;
 }
-.column{
+.column {
   margin-right: 10px;
 }
-.logout{
-  width:45px;
-  height:45px;
+.logout {
+  width: 45px;
+  height: 45px;
   cursor: pointer;
 }
-
-
-
-  

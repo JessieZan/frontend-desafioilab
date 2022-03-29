@@ -1,23 +1,30 @@
-import {useEffect, useState} from 'react';
-import './styles.css';
-import iconeSair from "../../assets/perfilUsuario/sair.svg"
-import setaOpcoes from "../../assets/perfilUsuario/setaParaBaixo.svg"
-export default function PerfilUsuario({nome, id , email, telefone}) {
+import iconeSair from "../../assets/perfilUsuario/sair.svg";
+import "./styles.css";
+import useLoginProvider from "../../hooks/useLoginProvider.jsx"
 
-return (
-  <>
-  <div className="card">
-    <div className='column'>
-      <p><b>ID:</b> #{id}</p>
-      <p><b>Nome:</b> {nome.replace("_"," ")}</p>
-    </div>
-    <img src={iconeSair} 
-    className="logout" 
-    alt ="Log-out"
-    onClick={(e)=>handleLogout(e)}
-    />
-  </div>
+export default function PerfilUsuario({ nome, id, email, telefone }) {
 
-</>
-);
+  const {handleLogout} = useLoginProvider();
+  const nomes = typeof nome === "string" ? nome.replace("_", " ") : "";
+
+  return (
+    <>
+      <div className="card">
+        <div className="column">
+          <p>
+            <b>ID:</b> #{id}
+          </p>
+          <p>
+            <b>Nome:</b> {nomes}
+          </p>
+        </div>
+        <img
+          src={iconeSair}
+          className="logout"
+          alt="Log-out"
+          onClick={(e) => handleLogout(e)}
+        />
+      </div>
+    </>
+  );
 }

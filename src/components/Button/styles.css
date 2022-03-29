@@ -1,11 +1,10 @@
 .tela_login_direita_botao_login {
-
-  font-family: 'Nunito',sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.8rem;
   line-height: 2.5rem;
-  color: #F8F8F9;
+  color: #f8f8f9;
   border-radius: 10px;
-  background-color: #EA1D2C;;
+  background-color: #ea1d2c;
 
   padding: 6px 55px;
   width: 100%;
@@ -16,4 +15,3 @@
   border: none;
   cursor: pointer;
 }
-
