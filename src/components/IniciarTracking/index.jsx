@@ -48,7 +48,7 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
     }
     try {
       const response = await fetch(
-        `http://localhost:8080/pedidos/cadastrar-coordenada`,
+        `${import.meta.env.VITE_APP_BASE_URL}/pedidos/cadastrar-coordenada`,
         {
           method: "POST",
           headers: {

@@ -19,7 +19,7 @@ export default function Home() {
 
   const handleMostraPedidosDisponiveis = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/pedidos/em-aberto`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/pedidos/em-aberto`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
