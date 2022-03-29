@@ -38,7 +38,7 @@ function Login() {
       });
     }
 
-  const promise = await fetch('http://localhost:8080/login', {
+  const promise = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json'
@@ -75,10 +75,7 @@ function Login() {
         theme="colored"
       />
 
-      <div className='motoboy-login'>
-      <img src={nuvens} alt="nuvens" className='nuvens'/>
-        <img src={motoboy} alt="motoboy-login" className='motoboy'/>
-      </div>
+   
 
       <section className="tela_login_direita">
         <h2 className="tela_login_direita_titulo">Faça seu login!</h2>

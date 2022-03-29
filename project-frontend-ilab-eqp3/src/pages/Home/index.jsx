@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.css';
 import IniciarTracking from '../../components/IniciarTracking';
 import PerfilUsuario from '../../components/PerfilUsuario';
@@ -16,19 +16,19 @@ export default function Home() {
   } = useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [idPedido, setIdPedido] = useState(0);
+  const [idPedido, setIdPedido] = useState('');
   const [pedidos, setPedidos] = useState([]);
   
   function handleAbrirModalTracking(pedidoID) {
+    console.log(pedidoID)
     setModalOpen(true);
     setIdPedido(pedidoID);
-    console.log(modalOpen)
   }
 
   const handleMostraPedidosDisponiveis = async () => {
         try {
           const response = await fetch(
-          `http://localhost:8080/pedidos/em-aberto`,
+          `${import.meta.env.VITE_APP_BASE_URL}/pedidos/em-aberto`,
           {
             method: "GET",
             headers: {
@@ -46,7 +46,7 @@ export default function Home() {
  };
  
   useEffect(() => {
-      setDadosLogado(token)
+      setDadosLogado(token);
       const carregarDados = async () => {
        if (token) {
          await handleMostraPedidosDisponiveis();
@@ -61,8 +61,8 @@ function formataData(data) {
   return (
     <>
     <main className="main_app">
-      <header onClick={(e)=>handleLogout(e)}>Pedidos</header>
-    <PerfilUsuario/>
+      <header >Pedidos</header>
+    <PerfilUsuario nome={nomeLogado} id={idLogado} email={emailLogado} telefone={telefoneLogado}/>
       <h1 className="main_app_title">Portal do Entregador</h1>
       <section className="main_app_section_pedidos">
         <button className='verPedidosButton'  onClick={handleMostraPedidosDisponiveis}>Atualizar Pedidos Disponiveis</button>
@@ -78,12 +78,12 @@ function formataData(data) {
             <span className='statusPedido'>{data.status[0].toUpperCase() + data.status.substr(1).replace('_',' ')}</span>
           </div>
 
-          );
-        })
-        }
+            );
+          })
+          }
         </div>
       </section>
-      {modalOpen ? <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} /> : null} 
+      {modalOpen ? <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} /> : null}
     </main>
     </>
   )

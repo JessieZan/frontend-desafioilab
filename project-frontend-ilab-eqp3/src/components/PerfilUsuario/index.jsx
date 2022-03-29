@@ -1,43 +1,23 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './styles.css';
-import useLoginProvider from "../../hooks/useLoginProvider";
 import iconeSair from "../../assets/perfilUsuario/sair.svg"
-export default function PerfilUsuario() {
-    const  {
-        handleLogout,
-        idLogado,
-        nomeLogado,
-        emailLogado,
-        telefoneLogado
-      } = useLoginProvider();
+import setaOpcoes from "../../assets/perfilUsuario/setaParaBaixo.svg"
+export default function PerfilUsuario({nome, id , email, telefone}) {
 
 return (
-  <div className={`containerPerfilUsuario`}>
-    <span className="imagemPerfil">
-    </span>
-    <p className="nomeUsuario">{nomeLogado}</p>
-    <div className="contemOpcoesPerfil">
-      <img
-        //src={setaOpcoes}
-        alt="seta modal editar e sair"
-        className="abreOpcoesPerfil"
-        // onClick={() => setOpcoesPerfilAberta(!opcoesPerfilAberta)}
-      />
-      <div className="opcoesPerfil">
-        <img
-          className="separa16"
-          //src={btnEditarCadastro}
-
-          alt="botão de edição"
-          //onClick={handleAbreEdicao}
-        />
-        <img
-          src={iconeSair}
-          alt="botão de sair"
-          onClick={(e)=>handleLogout(e)}
-        />
-      </div>
+  <>
+  <div className="card">
+    <div className='column'>
+      <p><b>ID:</b> #{id}</p>
+      <p><b>Nome:</b> {nome.replace("_"," ")}</p>
     </div>
+    <img src={iconeSair} 
+    className="logout" 
+    alt ="Log-out"
+    onClick={(e)=>handleLogout(e)}
+    />
   </div>
+
+</>
 );
 }
