@@ -7,7 +7,7 @@ import "./styles.css";
 
 
 export default function IniciarTracking({ setModalOpen, idPedido }) {
-  const { token } = useLoginProvider();
+  const { token, idLogado } = useLoginProvider();
   const [modalConcluirPedido, setModalConcluirPedido] = useState(false);
   const [dadosEntregador, setDadosCobranca] = useState({
     cliente_id: "",
@@ -41,6 +41,22 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
       errorTransferCoords,
       options
     );
+    
+    try {
+      const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/pedidos/atribuir/${idLogado}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            "id": idLogado
+          }),
+        }
+      );
+    } catch (err) {
+      console.error(err);
+    }
 
     setIdClearWatch(gps);
     setModalConcluirPedido(true);
