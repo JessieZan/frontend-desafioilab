@@ -92,7 +92,7 @@ export default function Home() {
               return (
                 <div
                   className="pedido"
-                  onClick={(data) => handleAbrirModalTracking(data.id)}
+                  onClick={() => handleAbrirModalTracking(data.id)}
                 >
                   <span>{`ID #${data.id}`}</span>
                   <span>{data.cliente.nome}</span>
@@ -112,7 +112,7 @@ export default function Home() {
           </div>
         </section>
         {modalOpen ? (
-          <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} />
+          <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} idLogado={idLogado} />
         ) : null}
       </main>
     </>
