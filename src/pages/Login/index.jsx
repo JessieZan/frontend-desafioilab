@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,7 +7,7 @@ import useLoginProvider from "../../hooks/useLoginProvider";
 import "./styles.css";
 
 function Login() {
-  const { setToken } = useLoginProvider();
+  const { setToken, update } = useLoginProvider();
 
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
@@ -17,6 +17,11 @@ function Login() {
   //TODO: Implementar logica para buscar se o email e senha existem
 
   const history = useHistory();
+
+  useEffect(() => {
+    update();
+  }, []);
+
   async function handleLogin(e) {
     e.preventDefault();
 

@@ -13,6 +13,7 @@ export default function Home() {
     idLogado,
     emailLogado,
     telefoneLogado,
+    update,
   } = useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -29,8 +30,10 @@ export default function Home() {
 
   const handleMostraPedidosDisponiveis = async () => {
     try {
+      const status = "em_andamento";
+
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BASE_URL}/pedidos/em-aberto`,
+        `${import.meta.env.VITE_APP_BASE_URL}/pedidos?status=${status}`,
         {
           method: "GET",
           headers: {
@@ -48,6 +51,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    update();
     setDadosLogado(token);
     const carregarDados = async () => {
       if (token) {
@@ -92,6 +96,7 @@ export default function Home() {
             {pedidos.map((data) => {
               return (
                 <div
+                  key={data.id}
                   className="pedido"
                   onClick={() => handleAbrirModalTracking(data.id)}
                 >
@@ -113,7 +118,11 @@ export default function Home() {
           </div>
         </section>
         {modalOpen ? (
-          <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} idLogado={idLogado} />
+          <IniciarTracking
+            setModalOpen={setModalOpen}
+            idPedido={idPedido}
+            idLogado={idLogado}
+          />
         ) : null}
       </main>
     </>
