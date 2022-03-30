@@ -38,17 +38,19 @@ export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
       errorTransferCoords,
       options
     );
-    console.log(idLogado)
+    console.log(idLogado);
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/pedidos/atribuir/${idLogado}`, {
+      const acao = "atribuir";
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_APP_BASE_URL
+        }/pedidos/${idPedido}?acao=${acao}&idEntregador=${idLogado}`,
+        {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({
-            "id": idLogado
-          }),
         }
       );
     } catch (err) {

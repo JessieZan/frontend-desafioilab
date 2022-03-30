@@ -3,10 +3,16 @@ import { useLocalStorage } from "react-use";
 
 function useLoginProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
-  const [idLogado, setIdLogado] = useState('');
+  const [idLogado, setIdLogado] = useState("");
   const [nomeLogado, setNomeLogado] = useState();
   const [emailLogado, setEmailLogado] = useState();
   const [telefoneLogado, setTelefoneLogado] = useState();
+
+  async function update() {
+    const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}`);
+    const data = await response.json();
+  }
+
   function handleLogout(e) {
     e.preventDefault();
     //removeDadosUsuario('dados', '');
@@ -27,7 +33,6 @@ function useLoginProvider() {
     setIdLogado(sub.split(",")[1]);
     setEmailLogado(sub.split(",")[2]);
     setTelefoneLogado(sub.split(",")[3]);
-
   }
 
   return {
@@ -39,6 +44,7 @@ function useLoginProvider() {
     nomeLogado,
     emailLogado,
     telefoneLogado,
+    update,
   };
 }
 
