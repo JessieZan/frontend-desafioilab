@@ -12,7 +12,7 @@ export default function Home() {
   const [testeToken, setTesteToken] = useState(0);
 
   function handleAbrirModalTracking(pedidoID) {
-    console.log(pedidoID);
+    // console.log(pedidoID);
     setModalOpen(true);
     setIdPedido(pedidoID);
   }
