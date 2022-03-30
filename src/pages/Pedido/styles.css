@@ -49,3 +49,84 @@
   background-color: #EA1D2C;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
 }
+.pedidot{
+  margin-top: 100px;
+}
+@media only screen and (max-width: 390px) {
+  .box{
+    background: #FFFFFF;
+    width: 70%;
+    padding: 20px 30px;
+    font-family: Nunito;
+    font-size: 0.9rem;
+  }
+  .botoes{
+    width: 73%;
+  }
+  .btn {
+    font-family: Nunito;
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    padding: 6px 25px;
+  }
+  .pedidot{
+    margin-top: -100px;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+  .box{
+    background: #FFFFFF;
+    width: 60%;
+    padding: 20px 40px;
+    font-family: Nunito;
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    font-family: Nunito;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding: 6px 10%;
+  }
+  .pedidot{
+    margin-top: -100px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .box{
+    background: #FFFFFF;
+    width: 50%;
+    padding: 20px 40px;
+    font-family: Nunito;
+    font-size: 1.1rem;
+  }
+  
+  .btn {
+    font-family: Nunito;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+  .pedidot{
+    margin-top: -100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .box{
+    width: 50%;
+    padding: 20px 40px;
+    font-family: Nunito;
+    font-size: 1.1rem;
+  }
+  
+  .btn {
+    font-family: Nunito;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+  .pedidot{
+    margin-top: 20px;
+  }
+}

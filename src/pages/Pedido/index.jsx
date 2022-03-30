@@ -109,8 +109,8 @@ function Pedido() {
 
   return (
     <main className="tela-pedido">
-      <header className="pedidot">Pedido</header>
-      <nav className="box ">
+      <header>Pedido</header>
+      <nav className="box pedidot">
         <h3 className="info">Id do pedido: #{idpedido}</h3>
         <h3>Data: {dataPedidoFormat[0]}</h3>
         <h3>Hora: {horapedidoFormat[0]}s</h3>
