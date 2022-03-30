@@ -21,7 +21,6 @@ export default function Home() {
   const [pedidos, setPedidos] = useState([]);
 
   function handleAbrirModalTracking(pedidoID) {
-
     // console.log(pedidoID);
 
     setModalOpen(true);
@@ -30,7 +29,7 @@ export default function Home() {
 
   const handleMostraPedidosDisponiveis = async () => {
     try {
-      const status = "em_andamento";
+      const status = "em_aberto";
 
       const response = await fetch(
         `${import.meta.env.VITE_APP_BASE_URL}/pedidos?status=${status}`,

@@ -37,19 +37,21 @@ export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
     console.log("pedido iniciado", idPedido);
     // console.log( idPedido)
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/pedidos/atribuir/${idPedido}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          id: 1
-        })
-      });
+      const acao = "atribuir";
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_APP_BASE_URL
+        }/pedidos/${idPedido}?acao=${acao}&idEntregador=${idLogado}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const data = await response.json();
-      
     } catch (error) {
       console.log(error.message);
     }
@@ -80,7 +82,7 @@ export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
 
     setIdClearWatch(gps);
     setModalConcluirPedido(true);
-    history.push("/pedido",{id: idPedido});
+    history.push("/pedido", { id: idPedido });
   }
 
   useEffect(async () => {
