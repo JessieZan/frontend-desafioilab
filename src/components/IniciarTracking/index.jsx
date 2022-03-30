@@ -3,9 +3,11 @@ import useLoginProvider from "../../hooks/useLoginProvider";
 import Botao from "../Button";
 import ConcluirPedido from "../ConcluirPedido";
 import "./styles.css";
+import { useHistory } from "react-router-dom";
 
 export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
   const { token } = useLoginProvider();
+  const history = useHistory();
   const [modalConcluirPedido, setModalConcluirPedido] = useState(false);
   const [dadosEntregador, setDadosCobranca] = useState({
     cliente_id: "",
@@ -33,6 +35,25 @@ export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
 
   async function handleIniciarTracking() {
     console.log("pedido iniciado", idPedido);
+    // console.log( idPedido)
+    try {
+      const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/pedidos/atribuir/${idPedido}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          id: 1
+        })
+      });
+
+      const data = await response.json();
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+
     const gps = navigator.geolocation.watchPosition(
       transferCoords,
       errorTransferCoords,
@@ -57,6 +78,7 @@ export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
 
     setIdClearWatch(gps);
     setModalConcluirPedido(true);
+    history.push("/pedido",{id: idPedido});
   }
 
   useEffect(async () => {

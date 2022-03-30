@@ -20,7 +20,8 @@ export default function Home() {
   const [pedidos, setPedidos] = useState([]);
 
   function handleAbrirModalTracking(pedidoID) {
-    console.log(pedidoID);
+
+    // console.log(pedidoID);
 
     setModalOpen(true);
     setIdPedido(pedidoID);
