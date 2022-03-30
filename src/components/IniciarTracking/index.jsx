@@ -5,7 +5,7 @@ import ConcluirPedido from "../ConcluirPedido";
 import "./styles.css";
 import { useHistory } from "react-router-dom";
 
-export default function IniciarTracking({ setModalOpen, idPedido }) {
+export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
   const { token } = useLoginProvider();
   const history = useHistory();
   const [modalConcluirPedido, setModalConcluirPedido] = useState(false);
@@ -14,9 +14,9 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
     descricao: "",
     vencimento: "",
     valor: "",
+
     status: "",
   });
-
   // GEOLOCATION  UTIL
   const [localizacao, setLocalizacao] = useState("");
   const [idClearWatch, setIdClearWatch] = useState("");
@@ -59,6 +59,23 @@ export default function IniciarTracking({ setModalOpen, idPedido }) {
       errorTransferCoords,
       options
     );
+    console.log(idLogado)
+    try {
+      const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}/pedidos/atribuir/${idLogado}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            "id": idLogado
+          }),
+        }
+      );
+    } catch (err) {
+      console.error(err);
+    }
+
     setIdClearWatch(gps);
     setModalConcluirPedido(true);
     history.push("/pedido",{id: idPedido});

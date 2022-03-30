@@ -12,11 +12,11 @@ function Login() {
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+
   const [usuarioNaoExiste, setUsuarioNaoExiste] = useState(false);
   //TODO: Implementar logica para buscar se o email e senha existem
 
   const history = useHistory();
-
   async function handleLogin(e) {
     e.preventDefault();
 
@@ -76,11 +76,12 @@ function Login() {
             <label htmlFor="input-email" className="form_label_login">
               E-mail ou telefone
             </label>
+
             <input
               className="input_login"
               type="text"
               name="input-email"
-              placeholder="Digite seu e-mail"
+              placeholder="Digite seu e-mail ou telefone"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

@@ -12,7 +12,6 @@ export default function ConcluirPedido({
 
   async function concluirPedido(params) {
     navigator.geolocation.clearWatch(idClearWatch);
-
     console.log(`encerrando pedido ${idPedido}`);
   }
 
