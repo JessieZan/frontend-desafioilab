@@ -20,9 +20,12 @@ function Pedido() {
   const [cliente, setcliente] = useState("");
   const [entregador, setentregador] = useState("");
   const id = state.id;
+  const [dadosChegou, setDadosChegou] = useState(false);
 
   const mostrarPedidoId = async (e) => {
+
     try {
+      setDadosChegou(false)
       const response = await fetch(
         `${import.meta.env.VITE_APP_BASE_URL}/pedidos/${id}`,
         {
@@ -49,6 +52,7 @@ function Pedido() {
       sethoradataFromat(horaSplit);
       setstatus(data.status);
       setentregador(data.entregador.id);
+      setDadosChegou(true)
     } catch (error) {
       console.log(error.message);
     }
@@ -108,42 +112,48 @@ function Pedido() {
   }, []);
 
   return (
-    <main className="tela-pedido">
-      <header>Pedido</header>
-      <nav className="box pedidot">
-        <h3 className="info">Id do pedido: #{idpedido}</h3>
-        <h3>Data: {dataPedidoFormat[0]}</h3>
-        <h3>Hora: {horapedidoFormat[0]}s</h3>
-      </nav>
-      <nav className="box">
-        <h3 className="info">Cliente</h3>
-        <h3> Id: {cliente.id}</h3>
-        <h3> Nome: {cliente.nome}</h3>
-      </nav>
-      <nav className="box">
-        <h3 className="info">Endereço da Entrega</h3>
-        <h3> Rua: {endereco[0]}</h3>
-        <h3> Numero: {endereco[1]}</h3>
-        <h3> Bairro: {endereco[2]}</h3>
-        <h3> Cidade: {endereco[3]}</h3>
-      </nav>
-      <nav className="box">
-        <h3 className="info">Detalhes do pedido</h3>
-        <h3> Valor: R$ {valor / 100},00</h3>
-        {/* <h3> Status: {status === "em_aberto"? "Em andamento" : "Em Aberto" }</h3> */}
-        <h3> Status: {status}</h3>
-      </nav>
-      <div className="botoes">
-        <button className="btn green" onClick={handleFinalizarPedido}>
-          {" "}
-          Concluir{" "}
-        </button>
-        <button className="btn red" onClick={handleCancelarPedido}>
-          {" "}
-          Cancelar{" "}
-        </button>
-      </div>
-    </main>
+    <>
+    
+    {dadosChegou && <>
+      <main className="tela-pedido">
+        <header>Pedido</header>
+        <nav className="box pedidot">
+          <h3 className="info">Id do pedido: #{idpedido}</h3>
+          <h3>Data: {dataPedidoFormat[0]}</h3>
+          <h3>Hora: {horapedidoFormat[0]}s</h3>
+        </nav>
+        <nav className="box">
+          <h3 className="info">Cliente</h3>
+          <h3> Id: {cliente.id}</h3>
+          <h3> Nome: {cliente.nome}</h3>
+        </nav>
+        <nav className="box">
+          <h3 className="info">Endereço da Entrega</h3>
+          <h3> Rua: {endereco[0]}</h3>
+          <h3> Numero: {endereco[1]}</h3>
+          <h3> Bairro: {endereco[2]}</h3>
+          <h3> Cidade: {endereco[3]}</h3>
+        </nav>
+        <nav className="box">
+          <h3 className="info">Detalhes do pedido</h3>
+          <h3> Valor: R$ {valor / 100},00</h3>
+          {/* <h3> Status: {status === "em_aberto"? "Em andamento" : "Em Aberto" }</h3> */}
+          <h3> Status: {status}</h3>
+        </nav>
+        <div className="botoes">
+          <button className="btn green" onClick={handleFinalizarPedido}>
+            {" "}
+            Concluir{" "}
+          </button>
+          <button className="btn red" onClick={handleCancelarPedido}>
+            {" "}
+            Cancelar{" "}
+          </button>
+        </div>
+      </main>
+     </>}
+    
+    </>
   );
 }
 
