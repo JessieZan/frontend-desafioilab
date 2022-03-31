@@ -16,6 +16,10 @@ function App() {
     );
   }
 
+  React.useEffect(()=>{
+    window.location.pathname === "/pedido" && console.log(window.location.replace("/"))
+  },[])
+
   return (
     <BrowserRouter>
       <Switch>
