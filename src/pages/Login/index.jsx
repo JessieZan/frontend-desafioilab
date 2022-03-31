@@ -80,32 +80,31 @@ function Login() {
           <div className="form_input email_login">
             <label htmlFor="input-email" className="form_label_login">
               E-mail ou telefone
+              <input
+                className="input_login"
+                type="text"
+                name="input-email"
+                placeholder="Digite seu e-mail ou telefone"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </label>
-
-            <input
-              className="input_login"
-              type="text"
-              name="input-email"
-              placeholder="Digite seu e-mail ou telefone"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
           </div>
 
           <div className="form_input senha_login botao">
             <label htmlFor="input-senha" className="form_label_login">
               Senha
+              <input
+                className="input_login"
+                type="password"
+                name="input-senha"
+                placeholder="Digite sua senha"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                required
+              />
             </label>
-            <input
-              className="input_login"
-              type="password"
-              name="input-senha"
-              placeholder="Digite sua senha"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              required
-            />
           </div>
 
           <div className="tela_login_direita_div_botao">
