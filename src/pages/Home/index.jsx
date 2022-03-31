@@ -78,6 +78,7 @@ export default function Home() {
   }
   return (
     <>
+    
       <main className="main_app">
         <header>Pedidos</header>
         <PerfilUsuario

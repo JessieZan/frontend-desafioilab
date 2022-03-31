@@ -9,6 +9,7 @@ import "./styles.css";
 function Pedido() {
   const history = useHistory();
   const { state } = useLocation();
+  //TODO: 1 NAO ESTA SENDO PUXADO
   const { token, pedidoCache, setPedidoCache, removePedidoCache } =
     useLoginProvider();
   const [pedido, setpedido] = useState([]);
@@ -21,7 +22,103 @@ function Pedido() {
   const [cliente, setcliente] = useState("");
   const [entregador, setentregador] = useState("");
   const id = localStorage.getItem("idPedidoCache") === null ? state.id : localStorage.getItem("idPedidoCache");
+
+
   const [dadosChegou, setDadosChegou] = useState(false);
+  const [localizacao, setLocalizacao] = useState("");
+  const [idClearWatch, setIdClearWatch] = useState("");
+  const options = {
+    enableHighAccuracy: true,
+  };
+
+  useEffect(async () => {
+    if (localizacao.length === 0) {
+      return;
+    }
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_APP_BASE_URL}/pedidos/cadastrar-coordenada`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            idPedido: id,
+            idEntregador: 1,
+            timestamp: new Date(),
+            coordenada: localizacao,
+          }),
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  }, [localizacao]);
+
+    // GEOLOCATION  UTIL
+    function transferCoords(pos) {
+      const coords = pos.coords;
+      setLocalizacao(`${coords.latitude} ${coords.longitude}`);
+    }
+  
+    function errorTransferCoords(error) {
+      console.warn("ERROR TO GET LOCALIZATION");
+    }
+    // GEOLOCATION  UTIL
+
+  useEffect(async () => {
+    try {
+      const acao = "atribuir";
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_APP_BASE_URL
+        }/pedidos/${id}?acao=${acao}&idEntregador=${1}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    const gps = navigator.geolocation.watchPosition(
+      transferCoords,
+      errorTransferCoords,
+      options
+    );
+    setIdClearWatch(gps)
+
+    try {
+      const acao = "atribuir";
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_APP_BASE_URL
+        }/pedidos/${id}?acao=${acao}&idEntregador=${1}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (err) {
+      console.error(err);
+    }
+
+    setIdClearWatch(gps);
+  }, []);
+
+
+
 
   const mostrarPedidoId = async (e) => {
 
@@ -66,6 +163,7 @@ function Pedido() {
   }
 
   async function handleCancelarPedido(e) {
+    navigator.geolocation.clearWatch(idClearWatch);
     try {
       const acao = "cancelar";
       const idEntregador = 1;
@@ -91,6 +189,7 @@ function Pedido() {
   }
 
   async function handleFinalizarPedido(e) {
+    navigator.geolocation.clearWatch(idClearWatch);
     try {
       const acao = "finalizar";
       const idEntregador = 1;
