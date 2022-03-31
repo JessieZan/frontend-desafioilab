@@ -17,99 +17,13 @@ export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
 
     status: "",
   });
-  // GEOLOCATION  UTIL
-  const [localizacao, setLocalizacao] = useState("");
-  const [idClearWatch, setIdClearWatch] = useState("");
-  const options = {
-    enableHighAccuracy: true,
-  };
-  function transferCoords(pos) {
-    const coords = pos.coords;
-    setLocalizacao(`${coords.latitude} ${coords.longitude}`);
-  }
 
-  function errorTransferCoords(error) {
-    console.warn("ERROR TO GET LOCALIZATION");
-  }
-  // GEOLOCATION  UTIL
 
-  async function handleIniciarTracking() {
-    console.log("pedido iniciado", idPedido);
-    // console.log( idPedido)
-    try {
-      const acao = "atribuir";
-      const response = await fetch(
-        `${
-          import.meta.env.VITE_APP_BASE_URL
-        }/pedidos/${idPedido}?acao=${acao}&idEntregador=${idLogado}`,
-        {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      const data = await response.json();
-    } catch (error) {
-      console.log(error.message);
-    }
-
-    const gps = navigator.geolocation.watchPosition(
-      transferCoords,
-      errorTransferCoords,
-      options
-    );
-    console.log(idLogado);
-    try {
-      const acao = "atribuir";
-      const response = await fetch(
-        `${
-          import.meta.env.VITE_APP_BASE_URL
-        }/pedidos/${idPedido}?acao=${acao}&idEntregador=${idLogado}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-    } catch (err) {
-      console.error(err);
-    }
-
-    setIdClearWatch(gps);
-    setModalConcluirPedido(true);
+  async function handleIniciarTracking() {    
     history.push("/pedido", { id: idPedido });
   }
 
-  useEffect(async () => {
-    if (localizacao.length === 0) {
-      return;
-    }
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_APP_BASE_URL}/pedidos/cadastrar-coordenada`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            idPedido: idPedido,
-            idEntregador: 1,
-            timestamp: new Date(),
-            coordenada: localizacao,
-          }),
-        }
-      );
-    } catch (err) {
-      console.log(err);
-    }
-  }, [localizacao]);
+
 
   return (
     <main className="modal_iniciarTracking">

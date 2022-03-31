@@ -3,6 +3,7 @@ import { useLocalStorage } from "react-use";
 
 function useLoginProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
+  const [idEntregador, setIdEntregador, removeIdEntrregador] = useLocalStorage("idEntregador", "");
   const [
     pedidoCache,
     setPedidoCache,
@@ -38,7 +39,7 @@ function useLoginProvider() {
     setIdLogado(sub.split(",")[1]);
     setEmailLogado(sub.split(",")[2]);
     setTelefoneLogado(sub.split(",")[3]);
-
+    setIdEntregador(idLogado)
   }
 
   return {
