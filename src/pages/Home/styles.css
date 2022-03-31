@@ -130,13 +130,14 @@ header {
 
 @media only screen and (max-width: 577px) {
   .main_app{
-    width: 118%;
+    width: 115%;
     height: 100%;
     background-size: cover;
   }
   .statusPedido{
     padding: 5px;
-    margin-left: 15px;
+    margin-left: 30px;
+    font-size: 0.8rem;
   }
   .main_app_title{
     margin-top: 650px;
@@ -151,14 +152,15 @@ header {
     margin-left: 45px;
   }
   .pedido {
-    width: 90%;
-    font-size: 0.9rem;
+    width: 85%;
+    font-size: 0.75rem;
+    margin-left: 10px;
   }
   .enderecoPedido{
     margin-right: -5px;
   }
   .card{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-right: -40px;
     width: 35%;
   }
@@ -167,8 +169,15 @@ header {
   }
   header{
     position: fixed;
-    width: 115%;
+    width: 90%;
     margin-bottom: 250px;
+  }
+  .modal_iniciarTracking_conteudo{
+    width: 300px;
+    font-size: 0.9rem;
+  }
+  .tela_login_direita_botao_login{
+   padding: 15px 20px;
   }
 }
 
