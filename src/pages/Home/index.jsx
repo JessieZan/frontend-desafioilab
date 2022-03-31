@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import IniciarTracking from "../../components/IniciarTracking";
 import PerfilUsuario from "../../components/PerfilUsuario";
 import useLoginProvider from "../../hooks/useLoginProvider";
@@ -19,6 +20,7 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [idPedido, setIdPedido] = useState("");
   const [pedidos, setPedidos] = useState([]);
+  const history = useHistory();
 
   function handleAbrirModalTracking(pedidoID) {
     // console.log(pedidoID);
@@ -56,6 +58,11 @@ export default function Home() {
       if (token) {
         await handleMostraPedidosDisponiveis();
       }
+
+      if (localStorage.getItem("pedidoCache")) {
+        history.push("/pedido");
+      }
+
     };
     carregarDados();
   }, []);

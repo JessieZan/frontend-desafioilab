@@ -3,7 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import useLoginProvider from "./hooks/useLoginProvider";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Pedido from "./pages/Pedido"
+import Pedido from "./pages/Pedido";
 
 function App() {
   const { token } = useLoginProvider();
