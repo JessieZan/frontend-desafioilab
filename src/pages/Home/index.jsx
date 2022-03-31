@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import IniciarTracking from "../../components/IniciarTracking";
 import PerfilUsuario from "../../components/PerfilUsuario";
 import useLoginProvider from "../../hooks/useLoginProvider";
@@ -13,14 +14,16 @@ export default function Home() {
     idLogado,
     emailLogado,
     telefoneLogado,
+    update,
   } = useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [idPedido, setIdPedido] = useState("");
   const [pedidos, setPedidos] = useState([]);
+  const history = useHistory();
 
   function handleAbrirModalTracking(pedidoID) {
-    console.log(pedidoID);
+    // console.log(pedidoID);
 
     setModalOpen(true);
     setIdPedido(pedidoID);
@@ -28,8 +31,10 @@ export default function Home() {
 
   const handleMostraPedidosDisponiveis = async () => {
     try {
+      const status = "em_aberto";
+
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BASE_URL}/pedidos/em-aberto`,
+        `${import.meta.env.VITE_APP_BASE_URL}/pedidos?status=${status}`,
         {
           method: "GET",
           headers: {
@@ -47,11 +52,17 @@ export default function Home() {
   };
 
   useEffect(() => {
+    update();
     setDadosLogado(token);
     const carregarDados = async () => {
       if (token) {
         await handleMostraPedidosDisponiveis();
       }
+
+      if (localStorage.getItem("pedidoCache")) {
+        history.push("/pedido");
+      }
+
     };
     carregarDados();
   }, []);
@@ -91,6 +102,7 @@ export default function Home() {
             {pedidos.map((data) => {
               return (
                 <div
+                  key={data.id}
                   className="pedido"
                   onClick={() => handleAbrirModalTracking(data.id)}
                 >
@@ -112,7 +124,11 @@ export default function Home() {
           </div>
         </section>
         {modalOpen ? (
-          <IniciarTracking setModalOpen={setModalOpen} idPedido={idPedido} idLogado={idLogado} />
+          <IniciarTracking
+            setModalOpen={setModalOpen}
+            idPedido={idPedido}
+            idLogado={idLogado}
+          />
         ) : null}
       </main>
     </>

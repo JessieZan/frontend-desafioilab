@@ -3,6 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import useLoginProvider from "./hooks/useLoginProvider";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Pedido from "./pages/Pedido";
 
 function App() {
   const { token } = useLoginProvider();
@@ -15,6 +16,10 @@ function App() {
     );
   }
 
+  React.useEffect(()=>{
+    window.location.pathname === "/pedido" && console.log(window.location.replace("/"))
+  },[])
+
   return (
     <BrowserRouter>
       <Switch>
@@ -22,6 +27,7 @@ function App() {
         <Route path="/" exact component={token ? Home : Login} />
         <RotasProtegidas>
           <Route path="/home" component={Home} />
+          <Route path="/pedido" component={Pedido} />
         </RotasProtegidas>
       </Switch>
     </BrowserRouter>
