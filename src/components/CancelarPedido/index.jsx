@@ -4,7 +4,7 @@ import "./styles.css";
 
 export default function ConcluirPedido({ setModalOpen, idPedido }) {
   async function concluirPedido(params) {
-    window.alert("CONCLUIU ESSA POHA");
+    window.alert("CONCLUIU");
   }
 
   return (
