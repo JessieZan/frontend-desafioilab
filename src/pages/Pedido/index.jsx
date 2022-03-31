@@ -38,7 +38,7 @@ function Pedido() {
     console.log(localizacao);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BASE_URL}/pedidos/cadastrar-coordenada`,
+        `${import.meta.env.VITE_APP_BASE_URL}/pedidos/coordenadas`,
         {
           method: "POST",
           headers: {
