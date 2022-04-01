@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.css";
 
-export default function ButtonRosa({ texto }) {
+export default function ButtonRosa({ texto, classe  }) {
   return (
     <input
       type="submit"
-      className="tela_login_direita_botao_login botao"
+      className={`botao ${classe}`}
       value={texto}
     />
   );
