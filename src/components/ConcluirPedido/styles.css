@@ -1,4 +1,4 @@
-.modal_iniciarTracking {
+/* .modal_iniciarTracking {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,16 @@
   gap: 50px;
 }
 
+.modal_iniciarTracking_title{
+  text-align: center;
+}
+
 .modal_iniciarTracking_botoes {
   display: flex;
   gap: 10px;
   justify-content: space-between;
 }
+
+.teste{
+  
+} */

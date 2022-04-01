@@ -16,14 +16,34 @@
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border-radius: 30px;
-  text-align: justify;
-  padding: 20px 50px;
+  /* border-radius: 25px; */
+  text-align:justify;
+  padding: 30px 10px;
   gap: 50px;
+}
+
+.modal_iniciarTracking_title{
+  text-align: center;
 }
 
 .modal_iniciarTracking_botoes {
   display: flex;
-  gap: 10px;
+  column-gap: 20px;
   justify-content: space-between;
+}
+
+.botaoCancelarTracking,
+.botaoIniciarTracking{
+  width: 130px;
+  color: #ffffff;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.botaoIniciarTracking{
+  background-color: green;
+}
+
+.botaoCancelarTracking{
+  background-color: crimson;
 }

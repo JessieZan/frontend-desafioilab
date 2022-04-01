@@ -14,16 +14,23 @@
   color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 2px;
-  right: 9%;
+  right: 15px;
   z-index: 4;
 }
+
 b {
   color: black;
+  display: none;
+}
+p {
+  display: none;
 }
 .column {
+  display: none;
   margin-right: 10px;
 }
 .logout {
+  margin-top: 10px;
   width: 45px;
   height: 45px;
   cursor: pointer;

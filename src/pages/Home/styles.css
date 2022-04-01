@@ -2,7 +2,6 @@
   cursor: default;
   min-height: 100vh;
 
-  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,71 +9,91 @@
   /* background-color: #E2E2E2;  */
   flex-direction: column;
   position: absolute;
+
   background-image: url("../../assets/mobile-delivery-man.jpg");
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   /* background-position: 50%; */
+  width: 100vw;
 }
-.main_app_title,
+
+
+
+.main_app_section_pedidos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+
+}
+
+.main_app_title {
+  display: none;
+}
+
 .main_app_section_pedidos_title {
   color: #37474f;
   background-color: #ffffff;
-  padding: 10px;
+  padding: 0.5rem;
   border: #ea1d2c solid 1px;
   border-radius: 12px;
 }
-.main_app_section_pedidos_title {
-}
-section {
+
+/* section {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
-}
+} */
+
 .main_app_section_pedidos_listagem {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   margin-top: 15px;
   margin-bottom: 15px;
   height: 650px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   margin-bottom: 100px;
-  width: 700px;
+  /* width: 700px; */
+  width: 80%;
 }
 
 .pedido {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #ffffff;
   border-radius: 8px;
-  width: 750px;
+  /* width: 750px; */
   height: auto;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  display: flex;
-  align-items: center;
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
-  padding: 15px;
+  padding: 10px;
   border: #ea1d2c solid 1px;
+  
 }
 
 .enderecoPedido {
-  width: 150px;
+  /* width: 150px; */
   overflow: hidden;
   text-overflow: ellipsis;
+  display: none;
 }
 
 .pedido > span:nth-child(1) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100px;
+  /* max-width: 100px; */
 }
 
 .verPedidosButton {
@@ -84,23 +103,22 @@ section {
   font-family: "Poppins", "sans-serif";
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 1.2rem;
   line-height: 36px;
   align-items: center;
   text-align: center;
   color: white;
-  width: 470px;
-  height: 68px;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  width: 80%;
+  height: 60px;
+  margin: 90px auto 20px;
 }
 
 header {
   background: #ea1d2c;
-  font-family: "Poppins";
+  font-family: 'Poppins';
 
   font-weight: 600;
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 48px;
   align-items: center;
   text-align: center;
@@ -118,17 +136,20 @@ header {
   align-items: center;
   text-align: center;
   max-width: 30px;
-  margin-right: 100px;
+  /* margin-right: 100px; */
+  display: none;
 }
 
 .statusPedido {
   background: #ea1d2c;
   border-radius: 60px;
   color: #ffffff;
-  padding: 10px;
+  padding: 7px;
+  font-size: 1.1rem;
+  /* margin-left: 25px; */
 }
 
-@media only screen and (max-width: 577px) {
+/* @media only screen and (max-width: 577px) {
   .main_app{
     width: 115%;
     height: 100%;
@@ -234,4 +255,4 @@ header {
     background-size: cover;
   }
 
-}
+} */

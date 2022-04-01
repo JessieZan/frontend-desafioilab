@@ -52,6 +52,7 @@
 .pedidot{
   margin-top: 100px;
 }
+
 @media only screen and (max-width: 390px) {
   .box{
     background: #FFFFFF;
@@ -70,7 +71,7 @@
     padding: 6px 25px;
   }
   .pedidot{
-    margin-top: 50px;
+    margin-top: 240px;
   }
 }
 

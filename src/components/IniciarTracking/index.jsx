@@ -37,13 +37,13 @@ export default function IniciarTracking({ setModalOpen, idPedido, idLogado }) {
             className="modal_iniciarTracking_botoes_confirmar"
             onClick={handleIniciarTracking}
           >
-            <Botao texto={"Iniciar"} classe={"tela_login_direita_botao_login"} />
+            <Botao texto={"Iniciar"} classe={"botaoIniciarTracking"} />
           </div>
           <div
             className="modal_iniciarTracking_botoes_cancelar"
             onClick={() => setModalOpen(false)}
           >
-            <Botao texto={"Cancelar"} />
+            <Botao texto={"Cancelar"} classe={"botaoCancelarTracking"} />
           </div>
         </div>
       </section>
