@@ -1,0 +1,258 @@
+.main_app {
+  cursor: default;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  /* background-color: #E2E2E2;  */
+  flex-direction: column;
+  position: absolute;
+
+  background-image: url("../../assets/mobile-delivery-man.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-position: 50%; */
+  width: 100vw;
+}
+
+
+
+.main_app_section_pedidos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+
+}
+
+.main_app_title {
+  display: none;
+}
+
+.main_app_section_pedidos_title {
+  color: #37474f;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border: #ea1d2c solid 1px;
+  border-radius: 12px;
+}
+
+/* section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+} */
+
+.main_app_section_pedidos_listagem {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 650px;
+  /* overflow-y: scroll; */
+  margin-bottom: 100px;
+  /* width: 700px; */
+  width: 80%;
+}
+
+.pedido {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  /* width: 750px; */
+  height: auto;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border: #ea1d2c solid 1px;
+  
+}
+
+.enderecoPedido {
+  /* width: 150px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: none;
+}
+
+.pedido > span:nth-child(1) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* max-width: 100px; */
+}
+
+.verPedidosButton {
+  background: #ea1d2c;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  font-family: "Poppins", "sans-serif";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 36px;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 80%;
+  height: 60px;
+  margin: 90px auto 20px;
+}
+
+header {
+  background: #ea1d2c;
+  font-family: 'Poppins';
+
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 48px;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  padding-top: 10px;
+}
+
+.dataPedido {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 30px;
+  /* margin-right: 100px; */
+  display: none;
+}
+
+.statusPedido {
+  background: #ea1d2c;
+  border-radius: 60px;
+  color: #ffffff;
+  padding: 7px;
+  font-size: 1.1rem;
+  /* margin-left: 25px; */
+}
+
+/* @media only screen and (max-width: 577px) {
+  .main_app{
+    width: 115%;
+    height: 100%;
+    background-size: cover;
+  }
+  .statusPedido{
+    padding: 5px;
+    margin-left: 30px;
+    font-size: 0.8rem;
+  }
+  .main_app_title{
+    margin-top: 650px;
+    margin-bottom: -90px;
+  }
+  .verPedidosButton{
+    width: 70%;
+    font-size: 1.2rem;
+  }
+  .main_app_section_pedidos_listagem {
+    width: 100%;
+    margin-left: 45px;
+  }
+  .pedido {
+    width: 85%;
+    font-size: 0.75rem;
+    margin-left: 10px;
+  }
+  .enderecoPedido{
+    margin-right: -5px;
+  }
+  .card{
+    font-size: 0.8rem;
+    margin-right: -40px;
+    width: 35%;
+  }
+  .dataPedido {
+    margin-right: 20px;
+  }
+  header{
+    position: fixed;
+    width: 90%;
+    margin-bottom: 250px;
+  }
+  .modal_iniciarTracking_conteudo{
+    width: 300px;
+    font-size: 0.9rem;
+  }
+  .tela_login_direita_botao_login{
+   padding: 15px 20px;
+  }
+}
+
+@media (min-width: 578px) and (max-width: 769px) {
+  .main_app_section_pedidos_listagem {
+    width: 100%;
+  }
+  .pedido {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+  .card{
+    font-size: 1.1rem;
+    margin-right: -40px;
+    width: 35%;
+  }
+  .main_app_section_pedidos{
+    margin-top: -20px;
+  }
+  .main_app{
+    background-size: cover;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .main_app_section_pedidos_listagem {
+    width: 110%;
+  }
+  .pedido {
+    width: 100%;
+  }
+
+  .main_app_section_pedidos{
+    margin-top: -10px;
+  }
+  .main_app{
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main_app_section_pedidos_listagem {
+    width: 110%;
+    height: 100%;
+  }
+  .pedido {
+    width: 100%;
+  }
+
+  .main_app_section_pedidos{
+    margin-top: -10px;
+  }
+  .main_app{
+    background-size: cover;
+  }
+
+} */
