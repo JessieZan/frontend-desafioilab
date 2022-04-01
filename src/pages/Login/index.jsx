@@ -108,7 +108,7 @@ function Login() {
           </div>
 
           <div className="tela_login_direita_div_botao">
-            <Button texto={"Entrar"} />
+            <Button texto={"Entrar"} classe={"tela_login_direita_botao_login"} />
           </div>
         </form>
       </section>

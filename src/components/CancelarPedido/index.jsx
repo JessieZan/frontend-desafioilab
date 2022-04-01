@@ -17,7 +17,7 @@ export default function ConcluirPedido({ setModalOpen, idPedido }) {
             className="modal_iniciarTracking_botoes_confirmar"
             onClick={concluirPedido}
           >
-            <Botao texto={"Concluir"} />
+            <Botao texto={"Concluir"} classe={"tela_login_direita_botao_login"} />
           </div>
         </div>
       </section>
