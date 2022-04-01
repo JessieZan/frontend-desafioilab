@@ -3,16 +3,16 @@ import { useLocalStorage } from "react-use";
 
 function useLoginProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
-  const [idEntregador, setIdEntregador, removeIdEntrregador] = useLocalStorage("idEntregador", "");
-  const [
-    pedidoCache,
-    setPedidoCache,
-    removePedidoCache,
-  ] = useLocalStorage("pedidoCache", "");
+  const [idEntregador, setIdEntregador, removeIdEntrregador] = useLocalStorage(
+    "idEntregador",
+    ""
+  );
+  const [pedidoCache, setPedidoCache, removePedidoCache] = useLocalStorage(
+    "pedidoCache",
+    ""
+  );
   const [idLogado, setIdLogado] = useState("");
   const [nomeLogado, setNomeLogado] = useState();
-  const [emailLogado, setEmailLogado] = useState();
-  const [telefoneLogado, setTelefoneLogado] = useState();
 
   async function update() {
     const response = await fetch(`${import.meta.env.VITE_APP_BASE_URL}`);
@@ -37,9 +37,9 @@ function useLoginProvider() {
     const { sub } = dadosToken;
     setNomeLogado(sub.split(",")[0]);
     setIdLogado(sub.split(",")[1]);
-    setEmailLogado(sub.split(",")[2]);
-    setTelefoneLogado(sub.split(",")[3]);
-    setIdEntregador(idLogado)
+    // setEmailLogado(sub.split(",")[2]);
+    // setTelefoneLogado(sub.split(",")[3]);
+    setIdEntregador(sub.split(",")[1]);
   }
 
   return {
@@ -49,12 +49,10 @@ function useLoginProvider() {
     setDadosLogado,
     idLogado,
     nomeLogado,
-    emailLogado,
-    telefoneLogado,
     update,
     pedidoCache,
     setPedidoCache,
-    removePedidoCache
+    removePedidoCache,
   };
 }
 

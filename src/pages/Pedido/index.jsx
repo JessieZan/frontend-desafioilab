@@ -75,7 +75,7 @@ function Pedido() {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BASE_URL
-        }/pedidos/${id}?acao=${acao}&idEntregador=${1}`,
+        }/pedidos/${id}?acao=${acao}`,
         {
           method: "PUT",
           headers: {
@@ -96,30 +96,7 @@ function Pedido() {
       options
     );
     setIdClearWatch(gps)
-
-    try {
-      const acao = "atribuir";
-      const response = await fetch(
-        `${
-          import.meta.env.VITE_APP_BASE_URL
-        }/pedidos/${id}?acao=${acao}&idEntregador=${1}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-    } catch (err) {
-      console.error(err);
-    }
-
-    setIdClearWatch(gps);
   }, []);
-
-
-
 
   const mostrarPedidoId = async (e) => {
 
@@ -171,7 +148,7 @@ function Pedido() {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BASE_URL
-        }/pedidos/${id}?acao=${acao}&idEntregador=${idEntregador}`,
+        }/pedidos/${id}?acao=${acao}`,
         {
           method: "PUT",
           headers: {
@@ -197,7 +174,7 @@ function Pedido() {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BASE_URL
-        }/pedidos/${id}?acao=${acao}&idEntregador=${idEntregador}`,
+        }/pedidos/${id}?acao=${acao}`,
         {
           method: "PUT",
           headers: {

@@ -6,16 +6,8 @@ import useLoginProvider from "../../hooks/useLoginProvider";
 import "./styles.css";
 
 export default function Home() {
-  const {
-    token,
-    handleLogout,
-    setDadosLogado,
-    nomeLogado,
-    idLogado,
-    emailLogado,
-    telefoneLogado,
-    update,
-  } = useLoginProvider();
+  const { token, handleLogout, setDadosLogado, nomeLogado, idLogado, update } =
+    useLoginProvider();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [idPedido, setIdPedido] = useState("");
@@ -23,8 +15,6 @@ export default function Home() {
   const history = useHistory();
 
   function handleAbrirModalTracking(pedidoID) {
-    // console.log(pedidoID);
-
     setModalOpen(true);
     setIdPedido(pedidoID);
   }
@@ -62,7 +52,6 @@ export default function Home() {
       if (localStorage.getItem("pedidoCache")) {
         history.push("/pedido");
       }
-
     };
     carregarDados();
   }, []);
@@ -78,15 +67,9 @@ export default function Home() {
   }
   return (
     <>
-    
       <main className="main_app">
         <header>Pedidos</header>
-        <PerfilUsuario
-          nome={nomeLogado}
-          id={idLogado}
-          email={emailLogado}
-          telefone={telefoneLogado}
-        />
+        <PerfilUsuario nome={nomeLogado} id={idLogado} />
         <h1 className="main_app_title">Portal do Entregador</h1>
         <section className="main_app_section_pedidos">
           <button
