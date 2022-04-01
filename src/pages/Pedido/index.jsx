@@ -35,7 +35,7 @@ function Pedido() {
     if (localizacao.length === 0) {
       return;
     }
-    console.log(localizacao);
+
     try {
       const response = await fetch(
         `${import.meta.env.VITE_APP_BASE_URL}/pedidos/coordenadas`,
@@ -61,6 +61,7 @@ function Pedido() {
     // GEOLOCATION  UTIL
     function transferCoords(pos) {
       const coords = pos.coords;
+      console.log(`LOCALIZACAO ATUAL: ${coords.latitude} ${coords.longitude}`);
       setLocalizacao(`${coords.latitude} ${coords.longitude}`);
     }
   
