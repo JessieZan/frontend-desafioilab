@@ -10,7 +10,7 @@ function Pedido() {
   const history = useHistory();
   const { state } = useLocation();
   //TODO: 1 NAO ESTA SENDO PUXADO
-  const { token, pedidoCache, setPedidoCache, removePedidoCache } =
+  const { token, pedidoCache, setPedidoCache, removePedidoCache, idEntregador } =
     useLoginProvider();
   const [pedido, setpedido] = useState([]);
   const [idpedido, setidpedido] = useState("");
@@ -47,7 +47,7 @@ function Pedido() {
           },
           body: JSON.stringify({
             idPedido: id,
-            idEntregador: 1,
+            idEntregador: idEntregador,
             timestamp: new Date(),
             coordenada: localizacao,
           }),
@@ -144,7 +144,6 @@ function Pedido() {
     navigator.geolocation.clearWatch(idClearWatch);
     try {
       const acao = "cancelar";
-      const idEntregador = 1;
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BASE_URL
@@ -170,7 +169,6 @@ function Pedido() {
     navigator.geolocation.clearWatch(idClearWatch);
     try {
       const acao = "finalizar";
-      const idEntregador = 1;
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BASE_URL

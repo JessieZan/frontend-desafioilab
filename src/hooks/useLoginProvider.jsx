@@ -3,7 +3,7 @@ import { useLocalStorage } from "react-use";
 
 function useLoginProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
-  const [idEntregador, setIdEntregador, removeIdEntrregador] = useLocalStorage(
+  const [idEntregador, setIdEntregador, removeIdEntregador] = useLocalStorage(
     "idEntregador",
     ""
   );
@@ -24,6 +24,7 @@ function useLoginProvider() {
     //removeDadosUsuario('dados', '');
     removeToken("token", "");
     console.log("Entrei no longout login");
+    removeIdEntregador("idEntregador", "")
     document.location.reload(true);
     history.push("/login");
   }
@@ -48,11 +49,13 @@ function useLoginProvider() {
     handleLogout,
     setDadosLogado,
     idLogado,
+    idEntregador,
     nomeLogado,
     update,
     pedidoCache,
     setPedidoCache,
     removePedidoCache,
+    removeIdEntregador
   };
 }
 
